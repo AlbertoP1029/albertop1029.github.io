@@ -38,10 +38,9 @@ function coverHTML(p, big) {
 
 /* ---------- home ---------- */
 let currentFilter = 'all';
-function renderHome() {
-  document.getElementById('filters').innerHTML = FILTERS.map(([k, t]) => `<button type="button" id="f-${k}" data-filter="${k}" aria-pressed="${k === currentFilter}">${L(t)}</button>`).join('') + '<span class="count meta" id="proj-count" aria-live="polite"></span>';
-  document.getElementById('grid').innerHTML = PROJECTS.map(p => `
-    <a class="pcard${p.wide ? ' wide' : ''}" href="#${p.id}" data-tags="${p.tags.join(' ')}">
+function cardHTML(p, wide) {
+  return `
+    <a class="pcard${wide && p.wide ? ' wide' : ''}" href="portfolio.html#${p.id}" data-id="${p.id}" data-tags="${p.tags.join(' ')}">
       <div class="cover">${coverHTML(p)}${p.status === 'live' ? `<span class="badge live">${L(T('In progress', 'En curso'))}</span>` : ''}</div>
       <div class="pbody">
         <span class="meta">${L(p.org)} · ${p.year}</span>
@@ -49,21 +48,35 @@ function renderHome() {
         <p>${L(p.summary)}</p>
         <div class="pfoot"><span></span><span class="more">${L(T('View project →', 'Ver proyecto →'))}</span></div>
       </div>
-    </a>`).join('');
-  document.getElementById('skills-grid').innerHTML = SKILLS.map(([h, items]) => `<div><h3>${L(h)}</h3><div class="tags">${items.map(i => `<span class="tag">${L(i)}</span>`).join('')}</div></div>`).join('') + `
+    </a>`;
+}
+function renderFeatured() {
+  const el = document.getElementById('featured'); if (!el) return;
+  el.innerHTML = ['schneider', 'fred-factory', 'abb-packaging'].map(id => cardHTML(PROJECTS.find(p => p.id === id), false)).join('');
+}
+function renderSkills() {
+  const el = document.getElementById('skills-grid'); if (!el) return;
+  el.innerHTML = SKILLS.map(([h, items]) => `<div><h3>${L(h)}</h3><div class="tags">${items.map(i => `<span class="tag">${L(i)}</span>`).join('')}</div></div>`).join('') + `
     <div><h3>${L(T('Languages', 'Idiomas'))}</h3><div class="langs">
       ${[[T('Spanish', 'Español'), 6, T('Native', 'Nativo')], [T('English', 'Inglés'), 5, T('C1')], [T('German', 'Alemán'), 4, T('B2')], [T('French', 'Francés'), 1, T('Basic', 'Básico')]].map(([n, k, lv]) => `<div class="lvl"><span>${L(n)}</span><span class="bar">${Array.from({ length: 6 }, (_, i) => `<i class="${i < k ? 'on' : ''}"></i>`).join('')}</span><span class="meta">${L(lv)}</span></div>`).join('')}
     </div></div>`;
+}
+function renderHome() {
+  if (!document.getElementById('grid')) return;
+  document.getElementById('filters').innerHTML = FILTERS.map(([k, t]) => `<button type="button" id="f-${k}" data-filter="${k}" aria-pressed="${k === currentFilter}">${L(t)}</button>`).join('') + '<span class="count meta" id="proj-count" aria-live="polite"></span>';
+  document.getElementById('grid').innerHTML = PROJECTS.map(p => cardHTML(p, true)).join('');
+  document.querySelectorAll('#grid .pcard').forEach(a => a.setAttribute('href', '#' + a.dataset.id));
   document.querySelectorAll('#filters button').forEach(b => b.addEventListener('click', () => { currentFilter = b.dataset.filter; applyFilter(); }));
   applyFilter();
 }
 function applyFilter() {
+  if (!document.getElementById('grid')) return;
   let n = 0;
   document.querySelectorAll('#filters button').forEach(b => b.setAttribute('aria-pressed', b.dataset.filter === currentFilter ? 'true' : 'false'));
   document.querySelectorAll('#grid .pcard').forEach(c => {
     const show = currentFilter === 'all' || c.dataset.tags.split(' ').includes(currentFilter);
     c.hidden = !show; if (show) n++;
-    c.classList.toggle('wide', !!(currentFilter === 'all' && PROJECTS.find(p => p.id === c.getAttribute('href').slice(1)).wide));
+    c.classList.toggle('wide', !!(currentFilter === 'all' && PROJECTS.find(p => p.id === c.dataset.id).wide));
   });
   const el = document.getElementById('proj-count');
   if (el) el.textContent = n + (isES() ? ' proyectos' : ' projects');
@@ -87,7 +100,7 @@ function renderDetail(p) {
     </figure>` : '';
   document.getElementById('detail').innerHTML = `
     <div class="wrap">
-      <a class="crumb" href="#projects">← ${L(T('All projects', 'Todos los proyectos'))}</a>
+      <a class="crumb" href="#">← ${L(T('All projects', 'Todos los proyectos'))}</a>
       <div class="d-head">
         <div>
           <p class="eyebrow">${L(p.org)} · ${p.year}</p>
@@ -126,16 +139,17 @@ function renderDetail(p) {
 
 /* ---------- router ---------- */
 function route() {
+  const det = document.getElementById('detail');
   const h = decodeURIComponent(location.hash.slice(1));
   const p = PROJECTS.find(x => x.id === h);
-  const home = document.getElementById('home'), det = document.getElementById('detail');
+  if (!det) { if (p) location.replace('portfolio.html#' + p.id); return; }
+  const home = document.getElementById('home');
   if (p) {
     renderDetail(p); home.hidden = true; det.hidden = false; window.scrollTo(0, 0);
     document.title = p.title.en + ' · Alberto Palacios';
   } else {
-    stopScope(); det.hidden = true; home.hidden = false; document.title = 'Alberto Palacios Portfolio';
-    if (h && h !== 'top') { const el = document.getElementById(h); if (el) requestAnimationFrame(() => el.scrollIntoView()); }
-    else window.scrollTo(0, 0);
+    stopScope(); det.hidden = true; home.hidden = false; document.title = 'Portfolio · Alberto Palacios';
+    if (h) { const el = document.getElementById(h); if (el) requestAnimationFrame(() => el.scrollIntoView()); }
   }
 }
 window.addEventListener('hashchange', route);
@@ -151,23 +165,55 @@ function setLang(l) {
 document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
 
 /* ---------- lightbox ---------- */
-const lb = document.getElementById('lb'); let lbOpen = false, lastFocus = null;
+const lb = document.getElementById('lb') || document.createElement('div'); let lbOpen = false, lastFocus = null;
 function showLB() { const g = gallery[gi]; document.getElementById('lb-img').src = g.src; document.getElementById('lb-img').alt = g.en; document.getElementById('lb-cap').textContent = isES() ? g.es : g.en; }
 function openLB(k) { gi = k; lastFocus = document.activeElement; showLB(); lb.classList.add('open'); lbOpen = true; document.getElementById('lb-x').focus(); }
 function closeLB() { lb.classList.remove('open'); lbOpen = false; if (lastFocus) lastFocus.focus(); }
 function stepLB(d) { gi = (gi + d + gallery.length) % gallery.length; showLB(); }
-document.getElementById('lb-x').addEventListener('click', closeLB);
-document.getElementById('lb-prev').addEventListener('click', () => stepLB(-1));
-document.getElementById('lb-next').addEventListener('click', () => stepLB(1));
+if (document.getElementById('lb')) document.getElementById('lb-x').addEventListener('click', closeLB);
+if (document.getElementById('lb')) document.getElementById('lb-prev').addEventListener('click', () => stepLB(-1));
+if (document.getElementById('lb')) document.getElementById('lb-next').addEventListener('click', () => stepLB(1));
 lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
 document.addEventListener('keydown', e => { if (!lbOpen) return; if (e.key === 'Escape') closeLB(); if (e.key === 'ArrowLeft') stepLB(-1); if (e.key === 'ArrowRight') stepLB(1); });
 
 /* ---------- copy email ---------- */
-document.getElementById('copy-mail').addEventListener('click', function () {
-  const btn = this, orig = btn.innerHTML;
+document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', function () {
+  const orig = btn.innerHTML;
   const done = ok => { btn.textContent = ok ? (isES() ? 'Copiado' : 'Copied') : (isES() ? 'Selecciona y copia' : 'Select and copy'); setTimeout(() => { btn.innerHTML = orig; }, 1600); };
   try { navigator.clipboard.writeText(btn.dataset.copy).then(() => done(true), () => done(false)); } catch (e) { done(false); }
-});
+}));
+
+/* ---------- mobile menu ---------- */
+(function () {
+  const btn = document.querySelector('.menu-btn'), menu = document.getElementById('site-menu'), close = document.querySelector('.menu-close');
+  if (!btn || !menu) return;
+  const set = open => { menu.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); document.body.style.overflow = open ? 'hidden' : ''; (open ? close : btn).focus(); };
+  btn.addEventListener('click', () => set(true));
+  close.addEventListener('click', () => set(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if (menu.classList.contains('open')) set(false); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) set(false); });
+})();
+
+/* ---------- contact form: opens the visitor's email app with the message ready ---------- */
+(function () {
+  const f = document.getElementById('cform'); if (!f) return;
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!f.reportValidity()) return;
+    const v = id => f.querySelector('#' + id).value.trim();
+    const name = v('fname') + ' ' + v('lname');
+    const subject = (isES() ? 'Contacto desde el portafolio: ' : 'Portfolio contact: ') + name;
+    const bodyTxt = v('message') + '\n\n' + name + '\n' + v('email');
+    window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyTxt);
+    document.getElementById('form-status').textContent = isES() ? 'Se abrirá tu aplicación de correo con el mensaje listo para enviar.' : 'Your email app will open with the message ready to send.';
+  });
+})();
+
+/* ---------- résumé PDF button: shown only when media/cv.pdf exists ---------- */
+(function () {
+  const b = document.getElementById('cv-btn'); if (!b) return;
+  fetch(b.getAttribute('href'), { method: 'HEAD' }).then(r => { if (r.ok) b.hidden = false; }).catch(() => {});
+})();
 
 /* ---------- pendulum scope ---------- */
 let scopeRAF = null, scopeObs = null;
@@ -218,7 +264,9 @@ function startScope() {
 }
 
 /* ---------- boot ---------- */
-renderHome();
+const CONTACT_EMAIL = 'albertod.palaciost@gmail.com';
+try { const f = new URLSearchParams(location.search).get('f'); if (f && FILTERS.some(x => x[0] === f)) currentFilter = f; } catch (e) {}
+renderHome(); renderFeatured(); renderSkills();
 let saved = null; try { saved = localStorage.getItem('ap-lang'); } catch (e) {}
 if (saved === 'es' || saved === 'en') setLang(saved);
 route();

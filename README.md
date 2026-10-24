@@ -1,40 +1,56 @@
 # Portafolio · Alberto Palacios
 
-## Estructura
+Sitio estático (HTML, CSS y JavaScript, sin dependencias ni compilación) para GitHub Pages.
 
-| Archivo | Para qué sirve |
+## Páginas
+
+| Archivo | Página |
 |---|---|
-| `index.html` | Estructura de la página principal (experiencia, formación, contacto). |
-| `content.js` | **Contenido de los proyectos y habilidades.** Aquí se agregan fotos, videos y textos. |
-| `app.js` | Lógica: páginas por proyecto, filtros, idioma, galería. No necesita cambios. |
-| `styles.css` | Diseño. |
-| `media/` | Fotos, videos y la imagen para vista previa en redes (`og.png`). |
+| `index.html` | Inicio: presentación, foto, Acerca de mí, Lo que hago y proyectos destacados. |
+| `portfolio.html` | Portafolio: todos los proyectos y una página de detalle por proyecto (`portfolio.html#id`). |
+| `resume.html` | Currículum: formación, experiencia, distinciones, habilidades e intereses. |
+| `leadership.html` | Liderazgo: equipos que has liderado, Quantum, experiencia internacional y deporte. |
+| `contact.html` | Contacto: formulario y datos directos. |
 
-## Publicar en GitHub Pages
+Archivos comunes: `styles.css` (diseño), `content.js` (proyectos y habilidades), `app.js` (lógica, no necesita cambios), `media/` (imágenes).
 
-1. Crea una cuenta en GitHub si aún no tienes una.
-2. Crea un repositorio **público** llamado exactamente `USUARIO.github.io`, sustituyendo `USUARIO` por tu nombre de usuario.
-3. En el repositorio, elige **Add file → Upload files** y arrastra **todo el contenido** de esta carpeta (no la carpeta en sí): `index.html`, `content.js`, `app.js`, `styles.css`, `favicon.svg`, `.nojekyll` y la carpeta `media`. Confirma con **Commit changes**.
-   - El archivo `.nojekyll` está oculto en algunos sistemas; si no lo ves, no pasa nada.
-4. Ve a **Settings → Pages**. En *Build and deployment*, selecciona **Deploy from a branch**, rama `main` y carpeta `/ (root)`. Guarda.
-5. En uno o dos minutos el sitio estará en `https://USUARIO.github.io`.
-6. En `index.html`, cambia `USUARIO` en la línea de `og:image` por tu usuario real, para que la vista previa funcione al compartir el enlace en LinkedIn o WhatsApp.
+## Actualizar el sitio que ya tienes publicado
+
+1. En tu repositorio `USUARIO.github.io`, sube **todo** el contenido de esta carpeta con **Add file → Upload files** (en Chrome o Edge, arrastrando también la carpeta `media`). Los archivos con el mismo nombre se reemplazan.
+2. Confirma con **Commit changes** y espera uno o dos minutos.
+3. Si en `index.html` y las demás páginas sigue apareciendo `USUARIO` en la línea `og:image`, sustitúyelo por tu usuario.
+
+## Fotos genéricas que debes reemplazar
+
+Sube tu foto **con el mismo nombre de archivo** y se reemplaza sola, sin tocar el código:
+
+| Archivo | Dónde aparece | Tamaño sugerido |
+|---|---|---|
+| `media/foto-perfil.jpg` | Inicio, junto a tu nombre | vertical 4:5, p. ej. 800 × 1000 px |
+| `media/foto-acerca.jpg` | Inicio, sección Acerca de mí | horizontal 16:10, p. ej. 1600 × 1000 px |
+| `media/foto-liderazgo.jpg` | Página de Liderazgo, banner | horizontal ancha, p. ej. 1600 × 690 px o más |
+
+Si tu foto es PNG o tiene otro nombre, cambia la ruta correspondiente en la página (`src="media/..."`).
+
+## Botón "Descargar CV (PDF)"
+
+El botón del Currículum aparece solo cuando existe el archivo `media/cv.pdf`. Sube tu CV con ese nombre y el botón se muestra automáticamente.
+
+## Proyectos, fotos y videos
+
+Todo está en `content.js`; las instrucciones con ejemplos están al inicio del archivo. Se puede editar directamente en GitHub con el ícono del lápiz.
+
+- Fotos: JPG, PNG o WEBP, de preferencia menores a 500 KB.
+- Videos propios: MP4 menores a 50 MB. Para videos largos, súbelos a YouTube y agrega el enlace; se reproducen dentro de la página.
+
+## Formulario de contacto
+
+GitHub Pages no tiene servidor, así que el formulario abre la aplicación de correo del visitante con el mensaje ya escrito y dirigido a tu correo. Si en el futuro quieres que los mensajes lleguen sin que el visitante abra su correo, se puede conectar un servicio gratuito como Formspree.
 
 ## Enlaces directos a cada proyecto
 
-`https://USUARIO.github.io/#schneider`, `#fred-factory`, `#abb-packaging`, `#drone-landing`, `#inverted-pendulum`, `#semi-automated-vehicle`, `#tractor-cabin`, `#dc-power-supply`, `#vibrating-platform`, `#emotion-recognition`, `#efuse`.
-
-## Agregar fotos y videos
-
-Las instrucciones están al inicio de `content.js`. Se puede editar directamente en GitHub: abre el archivo, presiona el ícono del lápiz, haz el cambio y confirma con **Commit changes**. El sitio se actualiza solo en uno o dos minutos.
-
-- Fotos: JPG, PNG o WEBP, de preferencia menores a 500 KB.
-- Videos propios: MP4 menores a 50 MB (GitHub no acepta archivos de más de 100 MB). Para videos largos es mejor subirlos a YouTube y agregar el enlace.
+`portfolio.html#schneider`, `#fred-factory`, `#abb-packaging`, `#drone-landing`, `#inverted-pendulum`, `#semi-automated-vehicle`, `#tractor-cabin`, `#dc-power-supply`, `#vibrating-platform`, `#emotion-recognition`, `#efuse`. Los enlaces anteriores del tipo `index.html#schneider` redirigen solos al portafolio.
 
 ## Dominio propio (opcional)
 
-Si compras un dominio (por ejemplo `albertopalacios.com`), agrégalo en **Settings → Pages → Custom domain** y sigue las instrucciones de DNS que muestra GitHub.
-
-## Ver el sitio en tu computadora
-
-Abre `index.html` con doble clic. Los videos de YouTube pueden no cargar desde un archivo local; en GitHub Pages sí funcionan.
+Agrégalo en **Settings → Pages → Custom domain** y sigue las instrucciones de DNS que muestra GitHub.
