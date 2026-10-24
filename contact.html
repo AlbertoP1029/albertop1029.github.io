@@ -12,79 +12,59 @@
 <meta property="og:image" content="https://USUARIO.github.io/media/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="lang-en">
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="index.html"><b>Alberto Palacios</b><small><span class="en">Mechatronics Engineer</span><span class="es">Ingeniero en Mecatrónica</span></small></a>
-    <div class="menu" id="site-menu">
-      <button type="button" class="menu-close" aria-label="Close menu">✕</button>
-      <nav aria-label="Main">
-          <a href="index.html"><span class="en">Home</span><span class="es">Inicio</span></a>
-          <a href="portfolio.html"><span class="en">Portfolio</span><span class="es">Portafolio</span></a>
-          <a href="resume.html"><span class="en">Resume</span><span class="es">Currículum</span></a>
-          <a href="leadership.html"><span class="en">Leadership</span><span class="es">Liderazgo</span></a>
-          <a href="contact.html" aria-current="page"><span class="en">Contact</span><span class="es">Contacto</span></a>
-      </nav>
-      <div class="social">
-        <a href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="contact.html">Email</a>
-      </div>
+<nav class="site-nav" aria-label="Main">
+  <a class="nav-brand" href="index.html">Alberto Palacios</a>
+  <div class="nav-right">
+    <div class="nav-menu" id="site-menu">
+      <button type="button" class="nav-close menu-close" aria-label="Close menu">✕</button>
+      <div class="nav-links"><a href="index.html"><span class="en">Home</span><span class="es">Inicio</span></a><a href="portfolio.html"><span class="en">Portfolio</span><span class="es">Portafolio</span></a><a href="resume.html"><span class="en">Resume</span><span class="es">Currículum</span></a><a href="leadership.html"><span class="en">Leadership</span><span class="es">Liderazgo</span></a><a href="contact.html" aria-current="page"><span class="en">Contact</span><span class="es">Contacto</span></a></div>
+      <span class="nav-divider"></span>
+      <a class="nav-icon" href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.4V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1V21H9z"/></svg></a>
+      <a class="nav-icon" href="contact.html" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.3V17h16V7.3l-8 5.6zM5.2 7 12 11.7 18.8 7z"/></svg></a>
+      <span class="nav-divider"></span>
+      <div class="lang" role="group" aria-label="Language"><button type="button" id="btn-en" data-lang="en" aria-pressed="true">EN</button><span>|</span><button type="button" id="btn-es" data-lang="es" aria-pressed="false">ES</button></div>
     </div>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" id="btn-en" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" id="btn-es" data-lang="es" aria-pressed="false">ES</button>
-    </div>
-    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-menu"><span class="en">Menu</span><span class="es">Menú</span></button>
+    <button type="button" class="hamburger menu-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
-</header>
+</nav>
 <main>
-  <section class="page-head">
-    <div class="wrap">
-      <p class="eyebrow"><span class="en">Contact</span><span class="es">Contacto</span></p>
-      <h1><span class="en">Let's work together</span><span class="es">Trabajemos juntos</span></h1>
-      <p class="lede"><span class="en">I am open to entry-level roles in simulation-driven engineering and to master's programs, starting after graduation in December 2026. Write to me through the form or directly.</span><span class="es">Estoy disponible para puestos de nivel inicial en ingeniería basada en simulación y para programas de maestría, a partir de mi graduación en diciembre de 2026. Escríbeme con el formulario o directamente.</span></p>
-    </div>
-  </section>
-  <div class="wrap contact-page">
-    <form class="cform" id="cform" novalidate>
-      <div class="row2">
-        <label for="fname"><span><span class="en">First name</span><span class="es">Nombre</span> <span class="req">*</span></span><input id="fname" name="fname" autocomplete="given-name" required></label>
-        <label for="lname"><span><span class="en">Last name</span><span class="es">Apellido</span> <span class="req">*</span></span><input id="lname" name="lname" autocomplete="family-name" required></label>
+  <section class="contact-layout">
+    <div class="contact-heading-col">
+      <div>
+        <h1 class="contact-cta"><span class="en">Let's Work Together</span><span class="es">Trabajemos juntos</span></h1>
+        <p><span class="en">Open to entry-level roles in simulation-driven engineering and to master's programs, starting after graduation in December 2026.</span><span class="es">Disponible para puestos de nivel inicial en ingeniería basada en simulación y para programas de maestría, a partir de mi graduación en diciembre de 2026.</span></p>
+        <ul class="direct">
+          <li><span class="k">Email</span>albertod.palaciost@gmail.com<button type="button" class="copy-inline" data-copy="albertod.palaciost@gmail.com"><span class="en">Copy</span><span class="es">Copiar</span></button></li>
+          <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener"><u>alberto-palacios</u></a></li>
+          <li><span class="k"><span class="en">Location</span><span class="es">Ubicación</span></span><span class="en">Monterrey, Mexico</span><span class="es">Monterrey, México</span></li>
+        </ul>
       </div>
-      <label for="email"><span>Email <span class="req">*</span></span><input id="email" name="email" type="email" autocomplete="email" required></label>
-      <label for="message"><span><span class="en">Message</span><span class="es">Mensaje</span> <span class="req">*</span></span><textarea id="message" name="message" required></textarea></label>
-      <button type="submit" class="btn primary"><span class="en">Send</span><span class="es">Enviar</span></button>
+    </div>
+    <form class="contact-form" id="cform" novalidate>
+      <div class="form-field">
+        <label><span class="en">Name</span><span class="es">Nombre</span> <span class="req">(<span class="en">required</span><span class="es">obligatorio</span>)</span></label>
+        <div class="form-row">
+          <div class="form-field"><label for="fname" style="font-weight:400;font-size:.85rem"><span class="en">First Name</span><span class="es">Nombre</span></label><input id="fname" name="fname" autocomplete="given-name" required></div>
+          <div class="form-field"><label for="lname" style="font-weight:400;font-size:.85rem"><span class="en">Last Name</span><span class="es">Apellido</span></label><input id="lname" name="lname" autocomplete="family-name" required></div>
+        </div>
+      </div>
+      <div class="form-field"><label for="email">Email <span class="req">(<span class="en">required</span><span class="es">obligatorio</span>)</span></label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      <div class="form-field"><label for="message"><span class="en">Message</span><span class="es">Mensaje</span> <span class="req">(<span class="en">required</span><span class="es">obligatorio</span>)</span></label><textarea id="message" name="message" required></textarea></div>
+      <button type="submit" class="form-submit"><span class="en">Send</span><span class="es">Enviar</span></button>
       <p class="form-status" id="form-status" aria-live="polite"></p>
     </form>
-    <aside class="side-card">
-      <h2><span class="en">Direct contact</span><span class="es">Contacto directo</span></h2>
-      <div class="ch"><span><small>Email</small>albertod.palaciost@gmail.com</span><button type="button" class="copy2" data-copy="albertod.palaciost@gmail.com"><span class="en">Copy</span><span class="es">Copiar</span></button></div>
-      <div class="ch"><a href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener"><small>LinkedIn</small>linkedin.com/in/alberto-palacios ↗</a></div>
-      <div class="ch"><span><small><span class="en">Location</span><span class="es">Ubicación</span></small><span class="en">Monterrey, Mexico</span><span class="es">Monterrey, México</span></span></div>
-      <div class="ch"><span><small><span class="en">Languages</span><span class="es">Idiomas</span></small><span class="en">Spanish, English, German</span><span class="es">Español, inglés, alemán</span></span></div>
-    </aside>
-  </div>
+  </section>
 </main>
 
 <footer class="site-foot">
-  <div class="wrap">
-    <nav class="foot-links" aria-label="Footer">
-      <a href="index.html"><span class="en">Home</span><span class="es">Inicio</span></a>
-      <a href="portfolio.html"><span class="en">Portfolio</span><span class="es">Portafolio</span></a>
-      <a href="resume.html"><span class="en">Resume</span><span class="es">Currículum</span></a>
-      <a href="leadership.html"><span class="en">Leadership</span><span class="es">Liderazgo</span></a>
-      <a href="contact.html"><span class="en">Contact</span><span class="es">Contacto</span></a>
-    </nav>
-    <div class="social">
-      <a href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="contact.html">Email</a>
-    </div>
-    <p>© 2026 Alberto David Palacios Treviño</p>
+  <div class="foot-nav"><a href="index.html"><span class="en">Home</span><span class="es">Inicio</span></a> <span class="sep">|</span> <a href="portfolio.html"><span class="en">Portfolio</span><span class="es">Portafolio</span></a> <span class="sep">|</span> <a href="resume.html"><span class="en">Resume</span><span class="es">Currículum</span></a> <span class="sep">|</span> <a href="leadership.html"><span class="en">Leadership</span><span class="es">Liderazgo</span></a> <span class="sep">|</span> <a href="contact.html"><span class="en">Contact</span><span class="es">Contacto</span></a></div>
+  <span class="foot-copy">© 2026 Alberto Palacios</span>
+  <div class="foot-icons">
+    <a href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.4V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1V21H9z"/></svg></a>
+    <a href="contact.html" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.3V17h16V7.3l-8 5.6zM5.2 7 12 11.7 18.8 7z"/></svg></a>
   </div>
 </footer>
 <script src="content.js"></script>

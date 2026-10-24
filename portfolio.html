@@ -12,50 +12,35 @@
 <meta property="og:image" content="https://USUARIO.github.io/media/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body class="lang-en">
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="index.html"><b>Alberto Palacios</b><small><span class="en">Mechatronics Engineer</span><span class="es">Ingeniero en Mecatrónica</span></small></a>
-    <div class="menu" id="site-menu">
-      <button type="button" class="menu-close" aria-label="Close menu">✕</button>
-      <nav aria-label="Main">
-          <a href="index.html"><span class="en">Home</span><span class="es">Inicio</span></a>
-          <a href="portfolio.html" aria-current="page"><span class="en">Portfolio</span><span class="es">Portafolio</span></a>
-          <a href="resume.html"><span class="en">Resume</span><span class="es">Currículum</span></a>
-          <a href="leadership.html"><span class="en">Leadership</span><span class="es">Liderazgo</span></a>
-          <a href="contact.html"><span class="en">Contact</span><span class="es">Contacto</span></a>
-      </nav>
-      <div class="social">
-        <a href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="contact.html">Email</a>
-      </div>
+<body class="lang-en has-hero">
+<nav class="site-nav" aria-label="Main">
+  <a class="nav-brand" href="index.html">Alberto Palacios</a>
+  <div class="nav-right">
+    <div class="nav-menu" id="site-menu">
+      <button type="button" class="nav-close menu-close" aria-label="Close menu">✕</button>
+      <div class="nav-links"><a href="index.html"><span class="en">Home</span><span class="es">Inicio</span></a><a href="portfolio.html" aria-current="page"><span class="en">Portfolio</span><span class="es">Portafolio</span></a><a href="resume.html"><span class="en">Resume</span><span class="es">Currículum</span></a><a href="leadership.html"><span class="en">Leadership</span><span class="es">Liderazgo</span></a><a href="contact.html"><span class="en">Contact</span><span class="es">Contacto</span></a></div>
+      <span class="nav-divider"></span>
+      <a class="nav-icon" href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.4V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1V21H9z"/></svg></a>
+      <a class="nav-icon" href="contact.html" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.3V17h16V7.3l-8 5.6zM5.2 7 12 11.7 18.8 7z"/></svg></a>
+      <span class="nav-divider"></span>
+      <div class="lang" role="group" aria-label="Language"><button type="button" id="btn-en" data-lang="en" aria-pressed="true">EN</button><span>|</span><button type="button" id="btn-es" data-lang="es" aria-pressed="false">ES</button></div>
     </div>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" id="btn-en" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" id="btn-es" data-lang="es" aria-pressed="false">ES</button>
-    </div>
-    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-menu"><span class="en">Menu</span><span class="es">Menú</span></button>
+    <button type="button" class="hamburger menu-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
+</nav>
+<header class="portfolio-hero">
+  <div class="hero-bg" style="background-image:url('media/fred-2.webp')"></div>
+  <h1><span class="en">Portfolio</span><span class="es">Portafolio</span></h1>
 </header>
+
 <main id="home">
-  <section class="page-head">
-    <div class="wrap">
-      <p class="eyebrow"><span class="en">Portfolio</span><span class="es">Portafolio</span></p>
-      <h1><span class="en">Projects</span><span class="es">Proyectos</span></h1>
-      <p class="lede"><span class="en">Industry work and university challenges set by Schneider Electric, ABB, John Deere and MIT. Select a project for the full write-up, photos and videos.</span><span class="es">Trabajo en la industria y retos universitarios planteados por Schneider Electric, ABB, John Deere y el MIT. Selecciona un proyecto para ver el detalle, fotos y videos.</span></p>
-    </div>
-  </section>
-  <section class="block" id="projects" style="padding-top:40px">
-    <div class="wrap">
-      <div class="filters" role="group" aria-label="Filter projects" id="filters"></div>
-      <div class="grid" id="grid"></div>
-    </div>
-  </section>
+  <div class="portfolio-wrap" id="projects">
+    <p class="portfolio-intro"><span class="en">Industry work and university challenges set by Schneider Electric, ABB, John Deere and MIT. Select a project for the full write-up, photos and videos.</span><span class="es">Trabajo en la industria y retos universitarios planteados por Schneider Electric, ABB, John Deere y el MIT. Selecciona un proyecto para ver el detalle, fotos y videos.</span></p>
+    <div class="filters" role="group" aria-label="Filter projects" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </div>
 </main>
 
 <main id="detail" class="detail" hidden></main>
@@ -67,29 +52,12 @@
   <button type="button" class="nxt" id="lb-next" aria-label="Next">›</button>
 </div>
 
-<section class="cta-band">
-  <div class="wrap">
-    <div>
-      <h2><span class="en">Let's work together</span><span class="es">Trabajemos juntos</span></h2>
-      <p><span class="en">Open to entry-level roles in simulation-driven engineering and to master's programs.</span><span class="es">Disponible para puestos de nivel inicial en ingeniería basada en simulación y para programas de maestría.</span></p>
-    </div>
-    <a class="btn primary" href="contact.html"><span class="en">Get in touch</span><span class="es">Contáctame</span> →</a>
-  </div>
-</section>
 <footer class="site-foot">
-  <div class="wrap">
-    <nav class="foot-links" aria-label="Footer">
-      <a href="index.html"><span class="en">Home</span><span class="es">Inicio</span></a>
-      <a href="portfolio.html"><span class="en">Portfolio</span><span class="es">Portafolio</span></a>
-      <a href="resume.html"><span class="en">Resume</span><span class="es">Currículum</span></a>
-      <a href="leadership.html"><span class="en">Leadership</span><span class="es">Liderazgo</span></a>
-      <a href="contact.html"><span class="en">Contact</span><span class="es">Contacto</span></a>
-    </nav>
-    <div class="social">
-      <a href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="contact.html">Email</a>
-    </div>
-    <p>© 2026 Alberto David Palacios Treviño</p>
+  <div class="foot-nav"><a href="index.html"><span class="en">Home</span><span class="es">Inicio</span></a> <span class="sep">|</span> <a href="portfolio.html"><span class="en">Portfolio</span><span class="es">Portafolio</span></a> <span class="sep">|</span> <a href="resume.html"><span class="en">Resume</span><span class="es">Currículum</span></a> <span class="sep">|</span> <a href="leadership.html"><span class="en">Leadership</span><span class="es">Liderazgo</span></a> <span class="sep">|</span> <a href="contact.html"><span class="en">Contact</span><span class="es">Contacto</span></a></div>
+  <span class="foot-copy">© 2026 Alberto Palacios</span>
+  <div class="foot-icons">
+    <a href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.4V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1V21H9z"/></svg></a>
+    <a href="contact.html" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.3V17h16V7.3l-8 5.6zM5.2 7 12 11.7 18.8 7z"/></svg></a>
   </div>
 </footer>
 <script src="content.js"></script>

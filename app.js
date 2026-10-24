@@ -11,24 +11,24 @@ function motifSVG(kind, big) {
   if (kind === 'step') {
     const z = 0.65, wn = 4, wd = wn * Math.sqrt(1 - z * z), ph = Math.acos(z); let d = '';
     for (let i = 0; i <= 200; i++) { const t = i / 200 * 3; const y = 1 - Math.exp(-z * wn * t) / Math.sqrt(1 - z * z) * Math.sin(wd * t + ph); d += (i ? 'L' : 'M') + (80 + t / 3 * (W - 160)).toFixed(1) + ' ' + (H - 90 - y * (H - 200)).toFixed(1); }
-    path = `<path d="M80 ${H - 90 - (H - 200)} H${W - 80}" stroke="#7d8da0" stroke-dasharray="5 6" fill="none"/><path d="${d}" stroke="#8fb0ff" stroke-width="3" fill="none"/>`;
+    path = `<path d="M80 ${H - 90 - (H - 200)} H${W - 80}" stroke="#888888" stroke-dasharray="5 6" fill="none"/><path d="${d}" stroke="#ffffff" stroke-width="3" fill="none"/>`;
   } else if (kind === 'wave') {
     let d = '', d2 = '';
     for (let i = 0; i <= 200; i++) { const x = 60 + i / 200 * (W - 120); d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + (H * 0.62 + Math.sin(i / 200 * Math.PI * 4) * 40).toFixed(1); d2 += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + (H * 0.62 + 26 + Math.sin(i / 200 * Math.PI * 4 - 0.6) * 30).toFixed(1); }
-    path = `<path d="${d2}" stroke="#4d6b9a" stroke-width="2" fill="none"/><path d="${d}" stroke="#8fb0ff" stroke-width="3" fill="none"/><g transform="translate(${W / 2 - 50} ${H * 0.2})" stroke="#e8edf3" stroke-width="2.5" fill="none"><rect x="30" y="18" width="40" height="16" rx="3"/><line x1="0" y1="10" x2="100" y2="10"/><circle cx="0" cy="10" r="8"/><circle cx="100" cy="10" r="8"/><line x1="50" y1="34" x2="50" y2="${H * 0.36}" stroke-dasharray="4 6" stroke="#8fb0ff"/></g>`;
+    path = `<path d="${d2}" stroke="#777777" stroke-width="2" fill="none"/><path d="${d}" stroke="#ffffff" stroke-width="3" fill="none"/><g transform="translate(${W / 2 - 50} ${H * 0.2})" stroke="#dddddd" stroke-width="2.5" fill="none"><rect x="30" y="18" width="40" height="16" rx="3"/><line x1="0" y1="10" x2="100" y2="10"/><circle cx="0" cy="10" r="8"/><circle cx="100" cy="10" r="8"/><line x1="50" y1="34" x2="50" y2="${H * 0.36}" stroke-dasharray="4 6" stroke="#ffffff"/></g>`;
   } else if (kind === 'pareto') {
     let pts = '';
     const rnd = (i) => (Math.sin(i * 12.9898) * 43758.5453) % 1;
-    for (let i = 0; i < 90; i++) { const a = Math.abs(rnd(i)), b = Math.abs(rnd(i + 99)); const x = 110 + a * (W - 220), y = 70 + b * (H - 170); pts += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.2" fill="#4d6b9a"/>`; }
+    for (let i = 0; i < 90; i++) { const a = Math.abs(rnd(i)), b = Math.abs(rnd(i + 99)); const x = 110 + a * (W - 220), y = 70 + b * (H - 170); pts += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.2" fill="#777777"/>`; }
     let d = ''; for (let i = 0; i <= 60; i++) { const t = i / 60; const x = 110 + t * (W - 220), y = H - 100 - (1 - Math.pow(t, 0.35)) * (H - 190); d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1); }
-    path = pts + `<path d="${d}" stroke="#8fb0ff" stroke-width="3" fill="none"/>`;
+    path = pts + `<path d="${d}" stroke="#ffffff" stroke-width="3" fill="none"/>`;
   } else if (kind === 'vision') {
-    path = `<g stroke="#8fb0ff" stroke-width="3" fill="none"><rect x="${W / 2 - 110}" y="${H / 2 - 120}" width="220" height="240" rx="6"/><path d="M${W / 2 - 110} ${H / 2 - 90} v-30 h30 M${W / 2 + 80} ${H / 2 - 120} h30 v30 M${W / 2 + 110} ${H / 2 + 90} v30 h-30 M${W / 2 - 80} ${H / 2 + 120} h-30 v-30" stroke="#e8edf3"/></g><g fill="#e8edf3"><circle cx="${W / 2 - 40}" cy="${H / 2 - 20}" r="7"/><circle cx="${W / 2 + 40}" cy="${H / 2 - 20}" r="7"/></g><path d="M${W / 2 - 45} ${H / 2 + 45} q45 30 90 0" stroke="#e8edf3" stroke-width="3" fill="none"/>`;
+    path = `<g stroke="#ffffff" stroke-width="3" fill="none"><rect x="${W / 2 - 110}" y="${H / 2 - 120}" width="220" height="240" rx="6"/><path d="M${W / 2 - 110} ${H / 2 - 90} v-30 h30 M${W / 2 + 80} ${H / 2 - 120} h30 v30 M${W / 2 + 110} ${H / 2 + 90} v30 h-30 M${W / 2 - 80} ${H / 2 + 120} h-30 v-30" stroke="#dddddd"/></g><g fill="#dddddd"><circle cx="${W / 2 - 40}" cy="${H / 2 - 20}" r="7"/><circle cx="${W / 2 + 40}" cy="${H / 2 - 20}" r="7"/></g><path d="M${W / 2 - 45} ${H / 2 + 45} q45 30 90 0" stroke="#dddddd" stroke-width="3" fill="none"/>`;
   }
   let grid = '';
   for (let x = 0; x <= W; x += 40) grid += `<line x1="${x}" y1="0" x2="${x}" y2="${H}"/>`;
   for (let y = 0; y <= H; y += 40) grid += `<line x1="0" y1="${y}" x2="${W}" y2="${y}"/>`;
-  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="${W}" height="${H}" fill="#14202e"/><g stroke="#ffffff" stroke-opacity="0.05">${grid}</g>${path}</svg>`;
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="${W}" height="${H}" fill="#111111"/><g stroke="#ffffff" stroke-opacity="0.05">${grid}</g>${path}</svg>`;
 }
 
 function coverHTML(p, big) {
@@ -86,54 +86,41 @@ function applyFilter() {
 let gallery = [], gi = 0;
 function renderDetail(p) {
   const i = PROJECTS.indexOf(p), prev = PROJECTS[(i - 1 + PROJECTS.length) % PROJECTS.length], next = PROJECTS[(i + 1) % PROJECTS.length];
-  const statusTxt = p.status === 'live' ? `<span class="status-pill live">${L(T('In progress', 'En curso'))}</span>` : `<span class="status-pill">${L(T('Completed', 'Concluido'))}</span>`;
-  const secs = [['challenge', T('The challenge', 'El reto')], ['approach', T('What we built', 'Lo que construimos')], ['results', T('Results', 'Resultados')], ['role', T('My role', 'Mi rol')]];
-  if (p.gallery.length) secs.push(['gallery', T('Photos and figures', 'Fotos y figuras')]);
-  if (p.videos.length || p.clips.length) secs.push(['videos', T('Videos', 'Videos')]);
+  const status = p.status === 'live' ? T('In progress', 'En curso') : T('Completed', 'Concluido');
   gallery = p.gallery;
-  const kpis = p.kpis.length ? `<div class="kpis">${p.kpis.map(([v, l]) => `<div class="kpi"><strong>${L(v)}</strong><span>${L(l)}</span></div>`).join('')}</div>` : '';
+  const sub = t => `<h2 class="project-sub-label">${L(t)}</h2>`;
   const scope = p.scope ? `
-    <figure class="scope" style="margin:6px 0 18px">
+    <figure class="scope">
       <div class="scope-head"><span>θ(t) / θ<sub>ref</sub></span><span id="readout"></span></div>
       <canvas id="trace" role="img" aria-label="Closed-loop step response designed for 6.81 percent overshoot and 1.54 second settling time"></canvas>
-      <figcaption class="meta" style="padding:6px 2px 4px">${L(T('Design response: second-order closed loop with ζ = 0.650 and ωn = 4.00 rad/s. Move the pointer over the plot to read values.', 'Respuesta de diseño: lazo cerrado de segundo orden con ζ = 0.650 y ωn = 4.00 rad/s. Mueve el cursor sobre la gráfica para leer valores.'))}</figcaption>
+      <figcaption>${L(T('Design response: second-order closed loop with ζ = 0.650 and ωn = 4.00 rad/s. Move the pointer over the plot to read values.', 'Respuesta de diseño: lazo cerrado de segundo orden con ζ = 0.650 y ωn = 4.00 rad/s. Mueve el cursor sobre la gráfica para leer valores.'))}</figcaption>
     </figure>` : '';
+  const vids = (p.videos.length || p.clips.length) ? sub(T('Videos')) +
+    p.clips.map(c => `<figure class="fig" style="margin-bottom:1.5rem"><video class="clip" src="${c.src}" controls preload="metadata"></video><figcaption>${L(c)}</figcaption></figure>`).join('') +
+    `<div class="embeds">${p.videos.map(v => { const id = ytId(v.url); return id ? `<figure class="fig"><div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="${esc(v.en)}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div><figcaption>${L(v)}</figcaption></figure>` : `<a class="video" href="${v.url}" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span><span>${L(v)}</span></a>`; }).join('')}</div>` : '';
   document.getElementById('detail').innerHTML = `
-    <div class="wrap">
-      <a class="crumb" href="#">← ${L(T('All projects', 'Todos los proyectos'))}</a>
-      <div class="d-head">
-        <div>
-          <p class="eyebrow">${L(p.org)} · ${p.year}</p>
-          <h1>${L(p.title)}</h1>
-          <p class="lede">${L(p.summary)}</p>
-        </div>
-        <dl class="facts">
-          ${p.facts.map(([k, v]) => `<div><dt>${L(k)}</dt><dd>${L(v)}</dd></div>`).join('')}
-          <div><dt>${L(T('Status', 'Estado'))}</dt><dd>${statusTxt}</dd></div>
-        </dl>
-      </div>
-      ${kpis}
+    <a class="crumb" href="#">← ${L(T('All projects', 'Todos los proyectos'))}</a>
+    <article class="project-block">
+      <h1>${L(p.title)}</h1>
+      <p class="project-org">${L(p.org)}, ${p.year}</p>
+      <p class="project-lede">${L(p.summary)}</p>
+      <ul class="facts">
+        ${p.facts.map(([k, v]) => `<li><span class="k">${L(k)}</span><span>${L(v)}</span></li>`).join('')}
+        <li><span class="k">${L(T('Status', 'Estado'))}</span><span>${L(status)}</span></li>
+      </ul>
       <figure class="d-cover">${coverHTML(p, true)}</figure>
-      <div class="d-body">
-        <nav class="toc" aria-label="On this page"><span class="meta">${L(T('On this page', 'En esta página'))}</span>${secs.map(([id, t]) => `<a href="#${p.id}" data-jump="${id}">${L(t)}</a>`).join('')}</nav>
-        <div class="prose">
-          <section id="s-challenge"><h2>${L(secs[0][1])}</h2><p>${L(p.challenge)}</p></section>
-          <section id="s-approach"><h2>${L(secs[1][1])}</h2>${scope}<ul>${p.approach.map(a => `<li>${L(a)}</li>`).join('')}</ul></section>
-          <section id="s-results"><h2>${L(secs[2][1])}</h2><p>${L(p.results)}</p></section>
-          <section id="s-role"><h2>${L(secs[3][1])}</h2><p>${L(p.role)}</p>${p.note ? `<p class="note">${L(p.note)}</p>` : ''}</section>
-          ${p.gallery.length ? `<section id="s-gallery"><h2>${L(T('Photos and figures', 'Fotos y figuras'))}</h2><div class="gallery">${p.gallery.map((g, k) => `<figure class="fig"><button type="button" data-g="${k}" aria-label="Enlarge image"><img src="${g.src}" alt="${esc(g.en)}" loading="lazy"></button><figcaption>${L(g)}</figcaption></figure>`).join('')}</div></section>` : ''}
-          ${(p.videos.length || p.clips.length) ? `<section id="s-videos"><h2>${L(T('Videos', 'Videos'))}</h2>
-            ${p.clips.map(c => `<figure class="fig" style="margin-bottom:14px"><video class="clip" src="${c.src}" controls preload="metadata"></video><figcaption>${L(c)}</figcaption></figure>`).join('')}
-            <div class="embeds">${p.videos.map(v => { const id = ytId(v.url); return id ? `<figure class="fig"><div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="${esc(v.en)}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div><figcaption>${L(v)} · <a href="${v.url}" target="_blank" rel="noopener">YouTube ↗</a></figcaption></figure>` : `<a class="video" href="${v.url}" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span><span><b>${L(v)}</b></span></a>`; }).join('')}</div></section>` : ''}
-          <nav class="pager" aria-label="More projects">
-            <a href="#${prev.id}"><small>← ${L(T('Previous', 'Anterior'))}</small><b>${L(prev.title)}</b></a>
-            <a class="next" href="#${next.id}"><small>${L(T('Next', 'Siguiente'))} →</small><b>${L(next.title)}</b></a>
-          </nav>
-        </div>
-      </div>
-    </div>`;
+      ${sub(T('The challenge', 'El reto'))}<p>${L(p.challenge)}</p>
+      ${sub(T('What we built', 'Lo que construimos'))}${scope}<ul class="points">${p.approach.map(a => `<li>${L(a)}</li>`).join('')}</ul>
+      ${sub(T('Results', 'Resultados'))}<p class="project-outcome">${L(p.results)}</p>
+      ${sub(T('My role', 'Mi rol'))}<p>${L(p.role)}</p>${p.note ? `<p class="note">${L(p.note)}</p>` : ''}
+      ${p.gallery.length ? sub(T('Photos and figures', 'Fotos y figuras')) + `<div class="gallery">${p.gallery.map((g, k) => `<figure class="fig"><button type="button" data-g="${k}" aria-label="Enlarge image"><img src="${g.src}" alt="${esc(g.en)}" loading="lazy"></button><figcaption>${L(g)}</figcaption></figure>`).join('')}</div>` : ''}
+      ${vids}
+      <nav class="pager" aria-label="More projects">
+        <a href="#${prev.id}"><small>← ${L(T('Previous', 'Anterior'))}</small><b>${L(prev.title)}</b></a>
+        <a class="next" href="#${next.id}"><small>${L(T('Next', 'Siguiente'))} →</small><b>${L(next.title)}</b></a>
+      </nav>
+    </article>`;
   document.querySelectorAll('#detail [data-g]').forEach(b => b.addEventListener('click', () => openLB(+b.dataset.g)));
-  document.querySelectorAll('#detail [data-jump]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); const el = document.getElementById('s-' + a.dataset.jump); if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }));
   if (p.scope) startScope(); else stopScope();
 }
 
@@ -145,10 +132,10 @@ function route() {
   if (!det) { if (p) location.replace('portfolio.html#' + p.id); return; }
   const home = document.getElementById('home');
   if (p) {
-    renderDetail(p); home.hidden = true; det.hidden = false; window.scrollTo(0, 0);
+    renderDetail(p); home.hidden = true; det.hidden = false; const ph = document.querySelector('.portfolio-hero'); if (ph) ph.hidden = true; setOverlay(); window.scrollTo(0, 0);
     document.title = p.title.en + ' · Alberto Palacios';
   } else {
-    stopScope(); det.hidden = true; home.hidden = false; document.title = 'Portfolio · Alberto Palacios';
+    stopScope(); det.hidden = true; home.hidden = false; const ph = document.querySelector('.portfolio-hero'); if (ph) ph.hidden = false; setOverlay(); document.title = 'Portfolio · Alberto Palacios';
     if (h) { const el = document.getElementById(h); if (el) requestAnimationFrame(() => el.scrollIntoView()); }
   }
 }
@@ -182,6 +169,14 @@ document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('cl
   const done = ok => { btn.textContent = ok ? (isES() ? 'Copiado' : 'Copied') : (isES() ? 'Selecciona y copia' : 'Select and copy'); setTimeout(() => { btn.innerHTML = orig; }, 1600); };
   try { navigator.clipboard.writeText(btn.dataset.copy).then(() => done(true), () => done(false)); } catch (e) { done(false); }
 }));
+
+/* ---------- transparent navigation over a hero image ---------- */
+function setOverlay() {
+  const nav = document.querySelector('nav.site-nav'); if (!nav) return;
+  const hero = [...document.querySelectorAll('.hero-home, .hero-full, .portfolio-hero')].find(h => !h.hidden);
+  nav.classList.toggle('nav-overlay', !!hero && window.scrollY < 20);
+}
+window.addEventListener('scroll', setOverlay, { passive: true });
 
 /* ---------- mobile menu ---------- */
 (function () {
@@ -270,3 +265,4 @@ renderHome(); renderFeatured(); renderSkills();
 let saved = null; try { saved = localStorage.getItem('ap-lang'); } catch (e) {}
 if (saved === 'es' || saved === 'en') setLang(saved);
 route();
+setOverlay();

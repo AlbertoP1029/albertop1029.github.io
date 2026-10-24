@@ -12,150 +12,90 @@
 <meta property="og:image" content="https://albertop1029.github.io/media/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body class="lang-en">
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="index.html"><b>Alberto Palacios</b><small><span class="en">Mechatronics Engineer</span><span class="es">Ingeniero en Mecatrónica</span></small></a>
-    <div class="menu" id="site-menu">
-      <button type="button" class="menu-close" aria-label="Close menu">✕</button>
-      <nav aria-label="Main">
-          <a href="index.html" aria-current="page"><span class="en">Home</span><span class="es">Inicio</span></a>
-          <a href="portfolio.html"><span class="en">Portfolio</span><span class="es">Portafolio</span></a>
-          <a href="resume.html"><span class="en">Resume</span><span class="es">Currículum</span></a>
-          <a href="leadership.html"><span class="en">Leadership</span><span class="es">Liderazgo</span></a>
-          <a href="contact.html"><span class="en">Contact</span><span class="es">Contacto</span></a>
-      </nav>
-      <div class="social">
-        <a href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="contact.html">Email</a>
-      </div>
+<body class="lang-en has-hero">
+<nav class="site-nav" aria-label="Main">
+  <a class="nav-brand" href="index.html">Alberto Palacios</a>
+  <div class="nav-right">
+    <div class="nav-menu" id="site-menu">
+      <button type="button" class="nav-close menu-close" aria-label="Close menu">✕</button>
+      <div class="nav-links"><a href="index.html" aria-current="page"><span class="en">Home</span><span class="es">Inicio</span></a><a href="portfolio.html"><span class="en">Portfolio</span><span class="es">Portafolio</span></a><a href="resume.html"><span class="en">Resume</span><span class="es">Currículum</span></a><a href="leadership.html"><span class="en">Leadership</span><span class="es">Liderazgo</span></a><a href="contact.html"><span class="en">Contact</span><span class="es">Contacto</span></a></div>
+      <span class="nav-divider"></span>
+      <a class="nav-icon" href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.4V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1V21H9z"/></svg></a>
+      <a class="nav-icon" href="contact.html" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.3V17h16V7.3l-8 5.6zM5.2 7 12 11.7 18.8 7z"/></svg></a>
+      <span class="nav-divider"></span>
+      <div class="lang" role="group" aria-label="Language"><button type="button" id="btn-en" data-lang="en" aria-pressed="true">EN</button><span>|</span><button type="button" id="btn-es" data-lang="es" aria-pressed="false">ES</button></div>
     </div>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" id="btn-en" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" id="btn-es" data-lang="es" aria-pressed="false">ES</button>
-    </div>
-    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-menu"><span class="en">Menu</span><span class="es">Menú</span></button>
+    <button type="button" class="hamburger menu-btn" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<header class="hero-home">
+  <div class="hero-bg" style="background-image:url('media/foto-portada.jpg')"></div>
+  <div class="hero-home-content">
+    <h1><span class="en">Hi, I'm Alberto Palacios</span><span class="es">Hola, soy Alberto Palacios</span></h1>
+    <p class="hero-sub"><span class="en">Mechatronics engineer working on simulation, control systems and automation, with industry experience at Mercedes-Benz AG in Germany.</span><span class="es">Ingeniero en Mecatrónica enfocado en simulación, sistemas de control y automatización, con experiencia en la industria en Mercedes-Benz AG, Alemania.</span></p>
+    <a class="btn btn-white" href="contact.html"><span class="en">Get in Touch</span><span class="es">Contáctame</span></a>
   </div>
 </header>
+
 <main>
-  <section class="hero2">
-    <div class="wrap hero2-grid">
-      <div>
-        <p class="eyebrow"><span class="en">Mechatronics Engineer · Simulation, control and automation</span><span class="es">Ingeniero en Mecatrónica · Simulación, control y automatización</span></p>
-        <h1>Alberto Palacios</h1>
-        <p class="lede"><span class="en">I build models of physical systems, validate them against hardware and automate the work in between.</span><span class="es">Construyo modelos de sistemas físicos, los valido contra hardware y automatizo el trabajo intermedio.</span></p>
-        <div class="cta">
-          <a class="btn primary" href="contact.html"><span class="en">Get in touch</span><span class="es">Contáctame</span> →</a>
-          <a class="btn" href="portfolio.html"><span class="en">View portfolio</span><span class="es">Ver portafolio</span></a>
-        </div>
-        <div class="facts-inline">
-          <div><b>98.53</b><span><span class="en">GPA out of 100</span><span class="es">promedio de 100</span></span></div>
-          <div><b>Mercedes-Benz</b><span><span class="en">HV systems internship, Germany</span><span class="es">prácticas en sistemas HV, Alemania</span></span></div>
-          <div><b><span class="en">3 countries</span><span class="es">3 países</span></b><span><span class="en">Mexico, Germany, United Kingdom</span><span class="es">México, Alemania, Reino Unido</span></span></div>
-        </div>
-      </div>
-      <figure class="portrait">
-        <img src="media/foto-perfil.jpg" alt="Alberto Palacios" width="800" height="1000">
-      </figure>
+  <section class="about-grid">
+    <div class="about-text">
+      <h2 class="section-heading"><span class="en">An Engineer Who Closes the Loop</span><span class="es">Un ingeniero que cierra el ciclo</span></h2>
+      <p><span class="en">My work starts with a model. At Mercedes-Benz AG in Germany I built a Python pipeline that runs LTspice simulations and searches the component parameters of a high-voltage eFuse protection circuit automatically, so that tuning stops being a manual loop.</span><span class="es">Mi trabajo empieza con un modelo. En Mercedes-Benz AG, en Alemania, construí un pipeline en Python que ejecuta simulaciones de LTspice y busca de forma automática los parámetros de un circuito de protección eFuse de alto voltaje, para que el ajuste deje de ser un ciclo manual.</span></p>
+      <p><span class="en">At Tecnológico de Monterrey I have led teams of up to eleven people on challenges set by Schneider Electric, ABB and John Deere, from a cobot inspection cell that cut inspection time by 95.6 % to robot cells programmed in RAPID and embedded controllers for vehicles and thermal systems.</span><span class="es">En el Tecnológico de Monterrey he liderado equipos de hasta once personas en retos planteados por Schneider Electric, ABB y John Deere, desde una celda de inspección con cobot que redujo 95.6 % el tiempo de inspección hasta celdas robóticas programadas en RAPID y controladores embebidos para vehículos y sistemas térmicos.</span></p>
+      <p><span class="en">I have studied and worked in Mexico, Germany and the United Kingdom, and I work in Spanish, English and German. After graduating in December 2026 I want to keep growing in simulation-driven engineering, through an entry-level role and a master's degree.</span><span class="es">He estudiado y trabajado en México, Alemania y el Reino Unido, y trabajo en español, inglés y alemán. Al graduarme en diciembre de 2026 quiero seguir creciendo en la ingeniería basada en simulación, con un puesto de nivel inicial y una maestría.</span></p>
+    </div>
+    <div class="about-img-wrapper">
+      <img src="media/foto-perfil.jpg" alt="Alberto Palacios" width="800" height="1000">
+      <!-- Optional caption, e.g.: <p class="caption">At the FrED Factory robot cell, Tecnológico de Monterrey.</p> -->
     </div>
   </section>
 
-  <section class="block" id="about">
-    <div class="wrap about">
-      <div>
-        <p class="eyebrow"><span class="en">About</span><span class="es">Acerca de mí</span></p>
-        <h2><span class="en">An engineer who closes the loop between model and hardware</span><span class="es">Un ingeniero que cierra el ciclo entre el modelo y el hardware</span></h2>
-        <img src="media/foto-acerca.jpg" alt="" loading="lazy" width="1600" height="1000">
+  <section class="section">
+    <h2 class="section-heading"><span class="en">What I Do</span><span class="es">Lo que hago</span></h2>
+    <div class="highlights-grid">
+      <div class="highlight-item">
+        <h3><span class="en">Simulation &amp; Optimization</span><span class="es">Simulación y optimización</span></h3>
+        <p><span class="en">Circuit and system models in LTspice, MATLAB and Simulink, coupled with Python optimization to replace manual tuning.</span><span class="es">Modelos de circuitos y sistemas en LTspice, MATLAB y Simulink, acoplados con optimización en Python para sustituir el ajuste manual.</span></p>
+        <a class="more" href="portfolio.html?f=sim"><span class="en">Related projects →</span><span class="es">Proyectos relacionados →</span></a>
       </div>
-      <div class="text">
-        <p><span class="en">My work starts with a model. At Mercedes-Benz AG in Germany I built a Python pipeline that runs LTspice simulations and searches the component parameters of a high-voltage eFuse protection circuit automatically, so that tuning stops being a manual loop. The same idea guides my control work: a controller designed on paper is finished only when the hardware behaves like the math.</span><span class="es">Mi trabajo empieza con un modelo. En Mercedes-Benz AG, en Alemania, construí un pipeline en Python que ejecuta simulaciones de LTspice y busca de forma automática los parámetros de un circuito de protección eFuse de alto voltaje, para que el ajuste deje de ser un ciclo manual. La misma idea guía mi trabajo en control: un controlador diseñado en papel está terminado solo cuando el hardware se comporta como indican las ecuaciones.</span></p>
-        <p><span class="en">At Tecnológico de Monterrey I have led teams of up to eleven people on challenges set by Schneider Electric, ABB and John Deere: a cobot inspection cell validated in a digital twin that cut inspection time by 95.6 %, robot cells programmed in RAPID, and embedded controllers for vehicles and thermal systems.</span><span class="es">En el Tecnológico de Monterrey he liderado equipos de hasta once personas en retos planteados por Schneider Electric, ABB y John Deere: una celda de inspección con cobot validada en un gemelo digital que redujo 95.6 % el tiempo de inspección, celdas robóticas programadas en RAPID y controladores embebidos para vehículos y sistemas térmicos.</span></p>
-        <p><span class="en">I have studied and worked in Mexico, Germany and the United Kingdom, and I work in Spanish, English and German. After graduating in December 2026 I want to grow in simulation-driven engineering, through an entry-level role and a master's degree.</span><span class="es">He estudiado y trabajado en México, Alemania y el Reino Unido, y trabajo en español, inglés y alemán. Al graduarme en diciembre de 2026 quiero crecer en la ingeniería basada en simulación, con un puesto de nivel inicial y una maestría.</span></p>
+      <div class="highlight-item">
+        <h3><span class="en">Control Systems</span><span class="es">Sistemas de control</span></h3>
+        <p><span class="en">State-space design, pole placement and PI control, validated on real hardware.</span><span class="es">Diseño en espacio de estados, asignación de polos y control PI, validados en hardware real.</span></p>
+        <a class="more" href="portfolio.html?f=ctrl"><span class="en">Related projects →</span><span class="es">Proyectos relacionados →</span></a>
       </div>
-    </div>
-  </section>
-
-  <section class="block" id="what-i-do">
-    <div class="wrap">
-      <div class="sec-head"><h2><span class="en">What I do</span><span class="es">Lo que hago</span></h2></div>
-      <div class="whatido">
-        <article>
-          <span class="num">01</span>
-          <h3><span class="en">Simulation &amp; optimization</span><span class="es">Simulación y optimización</span></h3>
-          <p><span class="en">Circuit and system models in LTspice, MATLAB and Simulink, coupled with Python optimization to replace manual tuning.</span><span class="es">Modelos de circuitos y sistemas en LTspice, MATLAB y Simulink, acoplados con optimización en Python para sustituir el ajuste manual.</span></p>
-          <a href="portfolio.html?f=sim"><span class="en">See projects →</span><span class="es">Ver proyectos →</span></a>
-        </article>
-        <article>
-          <span class="num">02</span>
-          <h3><span class="en">Control systems</span><span class="es">Sistemas de control</span></h3>
-          <p><span class="en">State-space design, pole placement and PI control, validated on hardware with hardware-in-the-loop tests.</span><span class="es">Diseño en espacio de estados, asignación de polos y control PI, validados en hardware con pruebas hardware-in-the-loop.</span></p>
-          <a href="portfolio.html?f=ctrl"><span class="en">See projects →</span><span class="es">Ver proyectos →</span></a>
-        </article>
-        <article>
-          <span class="num">03</span>
-          <h3><span class="en">Robotics &amp; automation</span><span class="es">Robótica y automatización</span></h3>
-          <p><span class="en">ABB robots programmed in RAPID, Schneider and Siemens PLCs, HMIs and safety interlocks, checked first in a digital twin.</span><span class="es">Robots ABB programados en RAPID, PLCs de Schneider y Siemens, HMIs y enclavamientos de seguridad, verificados primero en un gemelo digital.</span></p>
-          <a href="portfolio.html?f=robot"><span class="en">See projects →</span><span class="es">Ver proyectos →</span></a>
-        </article>
-        <article>
-          <span class="num">04</span>
-          <h3><span class="en">Electronics &amp; high voltage</span><span class="es">Electrónica y alto voltaje</span></h3>
-          <p><span class="en">Analog signal conditioning, power supplies, PCB design in Altium Designer and high-voltage protection circuits.</span><span class="es">Acondicionamiento analógico de señales, fuentes de alimentación, diseño de PCB en Altium Designer y circuitos de protección de alto voltaje.</span></p>
-          <a href="portfolio.html?f=elec"><span class="en">See projects →</span><span class="es">Ver proyectos →</span></a>
-        </article>
-        <article>
-          <span class="num">05</span>
-          <h3><span class="en">Embedded systems &amp; vision</span><span class="es">Sistemas embebidos y visión</span></h3>
-          <p><span class="en">STM32 and Arduino firmware, Raspberry Pi, and perception with OpenCV, ArUco markers and YOLOv8.</span><span class="es">Firmware para STM32 y Arduino, Raspberry Pi y percepción con OpenCV, marcadores ArUco y YOLOv8.</span></p>
-          <a href="portfolio.html?f=vision"><span class="en">See projects →</span><span class="es">Ver proyectos →</span></a>
-        </article>
-        <article>
-          <span class="num">06</span>
-          <h3><span class="en">Leadership</span><span class="es">Liderazgo</span></h3>
-          <p><span class="en">Team lead on every university project, with teams of up to eleven people, and member of the Quantum leadership program.</span><span class="es">Líder de equipo en todos mis proyectos universitarios, con equipos de hasta once personas, e integrante del programa de liderazgo Quantum.</span></p>
-          <a href="leadership.html"><span class="en">Read more →</span><span class="es">Leer más →</span></a>
-        </article>
+      <div class="highlight-item">
+        <h3><span class="en">Robotics &amp; Automation</span><span class="es">Robótica y automatización</span></h3>
+        <p><span class="en">ABB robots programmed in RAPID, Schneider and Siemens PLCs, HMIs and safety interlocks, tested first in a digital twin.</span><span class="es">Robots ABB programados en RAPID, PLCs de Schneider y Siemens, HMIs y enclavamientos de seguridad, probados primero en un gemelo digital.</span></p>
+        <a class="more" href="portfolio.html?f=robot"><span class="en">Related projects →</span><span class="es">Proyectos relacionados →</span></a>
       </div>
-    </div>
-  </section>
-
-  <section class="block" id="featured-work">
-    <div class="wrap">
-      <div class="sec-head"><h2><span class="en">Featured work</span><span class="es">Proyectos destacados</span></h2><p><span class="en">Three industry-partnered challenges. The portfolio has the full list.</span><span class="es">Tres retos con socios de la industria. El portafolio tiene la lista completa.</span></p></div>
-      <div class="grid" id="featured"></div>
-      <a class="more-link" href="portfolio.html"><span class="en">See all projects →</span><span class="es">Ver todos los proyectos →</span></a>
+      <div class="highlight-item">
+        <h3><span class="en">Electronics &amp; High Voltage</span><span class="es">Electrónica y alto voltaje</span></h3>
+        <p><span class="en">Analog signal conditioning, power supplies, PCB design in Altium Designer and high-voltage protection circuits.</span><span class="es">Acondicionamiento analógico de señales, fuentes de alimentación, diseño de PCB en Altium Designer y circuitos de protección de alto voltaje.</span></p>
+        <a class="more" href="portfolio.html?f=elec"><span class="en">Related projects →</span><span class="es">Proyectos relacionados →</span></a>
+      </div>
+      <div class="highlight-item">
+        <h3><span class="en">Embedded Systems &amp; Vision</span><span class="es">Sistemas embebidos y visión</span></h3>
+        <p><span class="en">Firmware for STM32 and Arduino, Raspberry Pi, and computer vision with OpenCV, ArUco markers and YOLOv8.</span><span class="es">Firmware para STM32 y Arduino, Raspberry Pi y visión por computadora con OpenCV, marcadores ArUco y YOLOv8.</span></p>
+        <a class="more" href="portfolio.html?f=vision"><span class="en">Related projects →</span><span class="es">Proyectos relacionados →</span></a>
+      </div>
+      <div class="highlight-item">
+        <h3><span class="en">Leadership</span><span class="es">Liderazgo</span></h3>
+        <p><span class="en">Team lead on every university project, with teams of up to eleven people, and member of the Quantum leadership program.</span><span class="es">Líder de equipo en todos mis proyectos universitarios, con equipos de hasta once personas, e integrante del programa de liderazgo Quantum.</span></p>
+        <a class="more" href="leadership.html"><span class="en">More about leadership →</span><span class="es">Más sobre liderazgo →</span></a>
+      </div>
     </div>
   </section>
 </main>
 
-<section class="cta-band">
-  <div class="wrap">
-    <div>
-      <h2><span class="en">Let's work together</span><span class="es">Trabajemos juntos</span></h2>
-      <p><span class="en">Open to entry-level roles in simulation-driven engineering and to master's programs.</span><span class="es">Disponible para puestos de nivel inicial en ingeniería basada en simulación y para programas de maestría.</span></p>
-    </div>
-    <a class="btn primary" href="contact.html"><span class="en">Get in touch</span><span class="es">Contáctame</span> →</a>
-  </div>
-</section>
 <footer class="site-foot">
-  <div class="wrap">
-    <nav class="foot-links" aria-label="Footer">
-      <a href="index.html"><span class="en">Home</span><span class="es">Inicio</span></a>
-      <a href="portfolio.html"><span class="en">Portfolio</span><span class="es">Portafolio</span></a>
-      <a href="resume.html"><span class="en">Resume</span><span class="es">Currículum</span></a>
-      <a href="leadership.html"><span class="en">Leadership</span><span class="es">Liderazgo</span></a>
-      <a href="contact.html"><span class="en">Contact</span><span class="es">Contacto</span></a>
-    </nav>
-    <div class="social">
-      <a href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="contact.html">Email</a>
-    </div>
-    <p>© 2026 Alberto David Palacios Treviño</p>
+  <div class="foot-nav"><a href="index.html"><span class="en">Home</span><span class="es">Inicio</span></a> <span class="sep">|</span> <a href="portfolio.html"><span class="en">Portfolio</span><span class="es">Portafolio</span></a> <span class="sep">|</span> <a href="resume.html"><span class="en">Resume</span><span class="es">Currículum</span></a> <span class="sep">|</span> <a href="leadership.html"><span class="en">Leadership</span><span class="es">Liderazgo</span></a> <span class="sep">|</span> <a href="contact.html"><span class="en">Contact</span><span class="es">Contacto</span></a></div>
+  <span class="foot-copy">© 2026 Alberto Palacios</span>
+  <div class="foot-icons">
+    <a href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.4V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1V21H9z"/></svg></a>
+    <a href="contact.html" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.3V17h16V7.3l-8 5.6zM5.2 7 12 11.7 18.8 7z"/></svg></a>
   </div>
 </footer>
 <script src="content.js"></script>
