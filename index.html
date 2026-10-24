@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alberto Palacios Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Portfolio of Alberto Palacios, mechatronics engineer: simulation, control systems, robotics and automation projects.">
+<meta name="author" content="Alberto David Palacios Treviño">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alberto Palacios · Mechatronics Engineer">
+<meta property="og:description" content="Simulation, control and automation projects with Mercedes-Benz, Schneider Electric, ABB, John Deere and MIT.">
+<meta property="og:image" content="https://albertop1029.github.io/media/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="lang-en">
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>Alberto Palacios</b><small><span class="en">Mechatronics Engineer</span><span class="es">Ingeniero en Mecatrónica</span></small></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#projects"><span class="en">Projects</span><span class="es">Proyectos</span></a>
+      <a href="#experience"><span class="en">Experience</span><span class="es">Experiencia</span></a>
+      <a href="#education"><span class="en">Education</span><span class="es">Formación</span></a>
+      <a href="#skills"><span class="en">Skills</span><span class="es">Habilidades</span></a>
+      <a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="btn-en" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" id="btn-es" data-lang="es" aria-pressed="false">ES</button>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= HOME ======================= -->
+<main id="home">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow"><span class="en">Portfolio · Tecnológico de Monterrey</span><span class="es">Portafolio · Tecnológico de Monterrey</span></p>
+        <h1>Alberto Palacios<span><span class="en">Simulation, control and automation for engineering systems</span><span class="es">Simulación, control y automatización de sistemas de ingeniería</span></span></h1>
+        <p class="lede">
+          <span class="en">Mechatronics engineering student with industry experience at Mercedes-Benz AG in Germany. I build models of physical systems, validate them against hardware, and automate the work in between, from circuit optimization to robot cells checked in a digital twin.</span>
+          <span class="es">Estudiante de Ingeniería en Mecatrónica con experiencia en la industria en Mercedes-Benz AG, Alemania. Construyo modelos de sistemas físicos, los valido contra hardware y automatizo el trabajo intermedio, desde la optimización de circuitos hasta celdas robóticas verificadas en un gemelo digital.</span>
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#projects"><span class="en">View projects</span><span class="es">Ver proyectos</span> →</a>
+          <a class="btn" href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a>
+        </div>
+      </div>
+      <aside class="glance" aria-label="Summary">
+        <dl>
+          <div><dt><span class="en">Degree</span><span class="es">Carrera</span></dt><dd><span class="en">B.S. Mechatronics Engineering, Dec 2026</span><span class="es">Ingeniería en Mecatrónica, dic. 2026</span></dd></div>
+          <div><dt><span class="en">GPA</span><span class="es">Promedio</span></dt><dd><span class="en">98.53 / 100, highest in the program</span><span class="es">98.53 / 100, el más alto del programa</span></dd></div>
+          <div><dt><span class="en">Industry</span><span class="es">Industria</span></dt><dd>Mercedes-Benz AG · Diram</dd></div>
+          <div><dt><span class="en">Abroad</span><span class="es">Extranjero</span></dt><dd>KIT, Karlsruhe · University of Oxford</dd></div>
+          <div><dt><span class="en">Languages</span><span class="es">Idiomas</span></dt><dd><span class="en">Spanish, English C1, German B2</span><span class="es">Español, inglés C1, alemán B2</span></dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2><span class="en">Projects</span><span class="es">Proyectos</span></h2>
+        <p><span class="en">Industry work and university challenges set by Schneider Electric, ABB, John Deere and MIT. Select a project for the full write-up, photos and videos.</span><span class="es">Trabajo en la industria y retos universitarios planteados por Schneider Electric, ABB, John Deere y el MIT. Selecciona un proyecto para ver el detalle, fotos y videos.</span></p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter projects" id="filters"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="sec-head"><h2><span class="en">Experience</span><span class="es">Experiencia</span></h2></div>
+      <div class="roles">
+        <article class="role">
+          <div class="when"><b><span class="en">Mar – Aug 2026</span><span class="es">Mar – Ago 2026</span></b>Sindelfingen, DE</div>
+          <div>
+            <h3><span class="en">High-Voltage Electrical Systems Intern</span><span class="es">Practicante en Sistemas Eléctricos de Alto Voltaje</span></h3>
+            <p class="org">Mercedes-Benz AG</p>
+            <ul class="en">
+              <li>Built an automated Python–LTspice optimization pipeline that reduced manual circuit-tuning iterations, using Optuna (Tree-structured Parzen Estimator) multi-objective search over component parameters for a high-voltage eFuse protection circuit.</li>
+              <li>Automated a short-circuit test sequence by designing and programming two-path PLC logic in Siemens TIA Portal for a SIMATIC S7-300 controller.</li>
+            </ul>
+            <ul class="es">
+              <li>Desarrollé un pipeline automatizado de optimización Python–LTspice que redujo las iteraciones manuales de ajuste, con búsqueda multiobjetivo en Optuna (Tree-structured Parzen Estimator) sobre los parámetros de un circuito de protección eFuse de alto voltaje.</li>
+              <li>Automaticé una secuencia de prueba de cortocircuito mediante lógica de PLC de dos rutas en Siemens TIA Portal para un controlador SIMATIC S7-300.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when"><b><span class="en">Jan – Jun 2025</span><span class="es">Ene – Jun 2025</span></b>San Pedro Garza García, MX</div>
+          <div>
+            <h3><span class="en">Electronics Design &amp; Development Intern</span><span class="es">Practicante de Diseño y Desarrollo Electrónico</span></h3>
+            <p class="org">Diram S.A. de C.V.</p>
+            <ul class="en">
+              <li>Designed and optimized multilayer PCB schematics and layouts in Altium Designer.</li>
+              <li>Performed design-for-manufacturing analyses in VisualCAM to verify signal integrity, manufacturability and compliance with IPC standards.</li>
+            </ul>
+            <ul class="es">
+              <li>Diseñé y optimicé esquemáticos y layouts de PCB multicapa en Altium Designer.</li>
+              <li>Realicé análisis de diseño para manufactura en VisualCAM para verificar integridad de señal, manufacturabilidad y cumplimiento de normas IPC.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="role">
+          <div class="when"><b><span class="en">Aug – Dec 2024</span><span class="es">Ago – Dic 2024</span></b><span class="en">Remote</span><span class="es">Remoto</span></div>
+          <div>
+            <h3><span class="en">Research Project Collaborator</span><span class="es">Colaborador en proyecto de investigación</span></h3>
+            <p class="org">Massachusetts Institute of Technology (MIT)</p>
+            <ul class="en"><li>Developed an emotion recognition model with 85 % accuracy using YOLOv8 and OpenCV for human–robot interaction with FrED, a low-cost fiber extrusion device.</li></ul>
+            <ul class="es"><li>Desarrollé un modelo de reconocimiento de emociones con 85 % de precisión usando YOLOv8 y OpenCV para la interacción humano–robot con FrED, un dispositivo de extrusión de fibra de bajo costo.</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="education">
+    <div class="wrap">
+      <div class="sec-head"><h2><span class="en">Education</span><span class="es">Formación académica</span></h2></div>
+      <div class="edu">
+        <article>
+          <p class="big">98.53 <small>/ 100</small></p>
+          <h3>Tecnológico de Monterrey</h3>
+          <span class="meta"><span class="en">B.S. Mechatronics Engineering · 2022 – 2026</span><span class="es">Ingeniería en Mecatrónica · 2022 – 2026</span></span>
+          <p class="en">Highest GPA in the Mechatronics Engineering program. Member of Quantum, the leadership program for the top-ranked students of the School of Engineering and Sciences.</p>
+          <p class="es">Mejor promedio del programa de Ingeniería en Mecatrónica. Integrante de Quantum, el programa de liderazgo para los mejores promedios de la Escuela de Ingeniería y Ciencias.</p>
+        </article>
+        <article>
+          <h3>Karlsruhe Institute of Technology</h3>
+          <span class="meta"><span class="en">Exchange, Computer Science · Oct 2025 – Sep 2026</span><span class="es">Intercambio, Ciencias de la Computación · oct 2025 – sep 2026</span></span>
+          <p class="en">Academic year in Germany, combined with the internship at Mercedes-Benz AG.</p>
+          <p class="es">Año académico en Alemania, combinado con las prácticas en Mercedes-Benz AG.</p>
+        </article>
+        <article>
+          <h3>University of Oxford</h3>
+          <span class="meta"><span class="en">Summer program · Jun – Jul 2024</span><span class="es">Programa de verano · jun – jul 2024</span></span>
+          <p>Artificial Intelligence and Machine Learning: Practice and Theory.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="sec-head"><h2><span class="en">Skills</span><span class="es">Habilidades</span></h2></div>
+      <div class="skills" id="skills-grid"></div>
+    </div>
+  </section>
+
+  <section class="block" id="beyond">
+    <div class="wrap">
+      <div class="sec-head"><h2><span class="en">Beyond engineering</span><span class="es">Fuera de la ingeniería</span></h2></div>
+      <div class="beyond">
+        <div><strong>42.2 km</strong><span class="en">Marathon finisher</span><span class="es">Maratón completado</span></div>
+        <div><strong>11 km</strong><span class="en">Open-water swim</span><span class="es">Nado en aguas abiertas</span></div>
+        <div><strong>HYROX</strong><span class="en">Race finisher</span><span class="es">Competencia completada</span></div>
+        <div><strong><span class="en">Swimming</span><span class="es">Natación</span></strong><span class="en">Former competitive swimmer</span><span class="es">Exnadador de competencia</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2><span class="en">Open to entry-level roles and master's programs</span><span class="es">Disponible para puestos de nivel inicial y programas de maestría</span></h2>
+        <p class="en">Simulation-driven engineering: circuit modeling, control systems and optimization. Available after graduation in December 2026.</p>
+        <p class="es">Ingeniería basada en simulación: modelado de circuitos, sistemas de control y optimización. Disponible a partir de mi graduación en diciembre de 2026.</p>
+      </div>
+      <div class="channels">
+        <div><span><small>Email</small>albertod.palaciost@gmail.com</span><button type="button" class="copy" id="copy-mail" data-copy="albertod.palaciost@gmail.com"><span class="en">Copy</span><span class="es">Copiar</span></button></div>
+        <a href="https://www.linkedin.com/in/alberto-palacios" target="_blank" rel="noopener"><span><small>LinkedIn</small>linkedin.com/in/alberto-palacios</span><span class="go">↗</span></a>
+        <div><span><small><span class="en">Location</span><span class="es">Ubicación</span></small>Monterrey, Mexico</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= PROJECT DETAIL ======================= -->
+<main id="detail" class="detail" hidden></main>
+
+<footer><div class="wrap">© 2026 Alberto David Palacios Treviño</div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button type="button" class="x" id="lb-x" aria-label="Close">×</button>
+  <button type="button" class="prev" id="lb-prev" aria-label="Previous">‹</button>
+  <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button type="button" class="nxt" id="lb-next" aria-label="Next">›</button>
+</div>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
