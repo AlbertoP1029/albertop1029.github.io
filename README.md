@@ -1,7 +1,5 @@
 # Portafolio · Alberto Palacios
 
-Sitio estático (HTML, CSS y JavaScript, sin dependencias ni compilación) listo para GitHub Pages.
-
 ## Estructura
 
 | Archivo | Para qué sirve |
