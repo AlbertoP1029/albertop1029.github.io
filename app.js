@@ -110,7 +110,7 @@ function renderDetail(p) {
       </ul>
       <figure class="d-cover">${coverHTML(p, true)}</figure>
       ${sub(T('The challenge', 'El reto'))}<p>${L(p.challenge)}</p>
-      ${sub(T('What we built', 'Lo que construimos'))}${scope}<ul class="points">${p.approach.map(a => `<li>${L(a)}</li>`).join('')}</ul>
+      ${sub(p.solo ? T('What I built', 'Lo que construí') : T('What we built', 'Lo que construimos'))}${scope}<ul class="points">${p.approach.map(a => `<li>${L(a)}</li>`).join('')}</ul>
       ${sub(T('Results', 'Resultados'))}<p class="project-outcome">${L(p.results)}</p>
       ${sub(T('My role', 'Mi rol'))}<p>${L(p.role)}</p>${p.note ? `<p class="note">${L(p.note)}</p>` : ''}
       ${p.gallery.length ? sub(T('Photos and figures', 'Fotos y figuras')) + `<div class="gallery">${p.gallery.map((g, k) => `<figure class="fig"><button type="button" data-g="${k}" aria-label="Enlarge image"><img src="${g.src}" alt="${esc(g.en)}" loading="lazy"></button><figcaption>${L(g)}</figcaption></figure>`).join('')}</div>` : ''}

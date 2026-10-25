@@ -23,7 +23,7 @@ const T = (en, es) => ({ en, es: es === undefined ? en : es });
 
 const PROJECTS = [
 {
-  id: 'efuse', wide: false, tags: ['sim', 'elec'], cover: { motif: 'pareto' },
+  id: 'efuse', solo: true, wide: false, tags: ['sim', 'elec'], cover: { motif: 'pareto' },
   org: T('Mercedes-Benz AG'), year: '2026', status: 'done',
   title: T('Automated optimization pipeline for a high-voltage eFuse circuit', 'Pipeline de optimización automatizada para un circuito eFuse de alto voltaje'),
   summary: T('Python pipeline that couples LTspice simulations with Optuna to tune a high-voltage protection circuit.', 'Pipeline en Python que acopla simulaciones de LTspice con Optuna para ajustar un circuito de protección de alto voltaje.'),
@@ -36,7 +36,7 @@ const PROJECTS = [
     T('Evaluated each candidate automatically against the protection objectives.', 'Evalué cada candidato de forma automática contra los objetivos de protección.')
   ],
   results: T('The pipeline replaced manual circuit-tuning iterations with a repeatable optimization loop.', 'El pipeline sustituyó las iteraciones manuales de ajuste por un ciclo de optimización repetible.'),
-  role: T('Designed and built the pipeline during my internship.', 'Diseñé y construí el pipeline durante mis prácticas.'),
+  role: T("I designed and built the pipeline end to end during my internship: the automated LTspice runs from Python, the multi-objective search with Optuna and the evaluation of each candidate design against the protection objectives.", "Diseñé y construí el pipeline completo durante mis prácticas: la ejecución automática de LTspice desde Python, la búsqueda multiobjetivo con Optuna y la evaluación de cada diseño candidato frente a los objetivos de protección."),
   note: T('Further technical details are confidential to Mercedes-Benz AG.', 'Los detalles técnicos adicionales son confidenciales de Mercedes-Benz AG.'),
   gallery: [], videos: [], clips: []
 },
@@ -57,7 +57,7 @@ const PROJECTS = [
     T('A fixture with UHMW pads holds the breaker in place, and an FMEA covered vision misreads, misalignment, path deviation and an unsecured part.', 'Un fixture con almohadillas de UHMW sujeta el interruptor, y un AMEF cubrió lecturas erróneas de visión, desalineación, desviación de trayectoria y pieza mal sujeta.')
   ],
   results: T('The routine measured 234 seconds on hardware, a 95.6 % reduction against the manual process and well beyond the 30 % target. That frees more than 5,700 labor hours and about MXN 680,000 per year. The proposal costs MXN 1.32 million, inside the budget, with a three-year ROI of 54.7 % and a payback of 1.94 years.', 'La rutina midió 234 segundos en el equipo real, una reducción de 95.6 % frente al proceso manual y muy por encima de la meta de 30 %. Eso libera más de 5,700 horas de trabajo y cerca de MXN 680,000 al año. La propuesta cuesta MXN 1.32 millones, dentro del presupuesto, con un ROI a tres años de 54.7 % y recuperación en 1.94 años.'),
-  role: T('Led the team of eleven and worked across every subsystem. I programmed the cobot routine and prepared the technical justification for the robot selection.', 'Lideré el equipo de once integrantes y participé en todos los subsistemas. Programé la rutina del cobot y preparé la justificación técnica de la selección del robot.'),
+  role: T("I led the team of eleven. I programmed the Lexium cobot routine myself: the moves to the ten inspection points, the camera trigger and the counter signal sent to the PLC at each point. I also wrote the technical justification for choosing the cobot, based on its payload and on reaching all ten points without moving its base. Beyond that, I took part in the PLC and HMI integration, the vision setup and the digital twin.", "Lideré el equipo de once integrantes. Programé personalmente la rutina del cobot Lexium: los movimientos a los diez puntos de inspección, el disparo de la cámara y la señal de conteo que se envía al PLC en cada punto. También redacté la justificación técnica para elegir el cobot, basada en su carga útil y en que alcanza los diez puntos sin mover su base. Además, participé en la integración del PLC y la HMI, la configuración de visión y el gemelo digital."),
   gallery: [
     { src: 'media/schneider-1.webp', ...T('System integration: PLC, HMI, cobot and vision sensor.', 'Integración del sistema: PLC, HMI, cobot y sensor de visión.') },
     { src: 'media/schneider-2.webp', ...T('Digital twin of the cell in EcoStruxure Machine Expert Twin.', 'Gemelo digital de la celda en EcoStruxure Machine Expert Twin.') },
@@ -65,6 +65,25 @@ const PROJECTS = [
     { src: 'media/schneider-4.webp', ...T('Pattern-matching inspection in Datalogic VPM Lite.', 'Inspección por búsqueda de patrón en Datalogic VPM Lite.') },
     { src: 'media/schneider-5.webp', ...T('Cell layout and breaker fixture.', 'Layout de la celda y fixture del interruptor.') }
   ], videos: [], clips: []
+},
+{
+  id: 'diram-interface-board', solo: true, tags: ['elec'], cover: { src: 'media/diram-portada.jpg' },
+  org: T('Diram S.A. de C.V.'), year: '2025', status: 'done',
+  title: T('Opto-isolated PNP-to-NPN interface board', 'Tarjeta de interfaz optoaislada de PNP a NPN'),
+  summary: T('A PCB that lets a robot with PNP outputs drive a dispenser with NPN inputs.', 'Un PCB que permite que un robot con salidas PNP controle un dispensador con entradas NPN.'),
+  facts: [[T('Company', 'Empresa'), T('Diram S.A. de C.V., San Pedro Garza García')], [T('Context', 'Contexto'), T('Electronics design internship', 'Prácticas en diseño electrónico')], [T('Year', 'Año'), T('Jan – Jun 2025', 'Ene – jun 2025')], [T('Tools', 'Herramientas'), T('Altium Designer, VisualCAM')]],
+  kpis: [],
+  challenge: T('A robot with PNP (sourcing) outputs had to control a dispenser whose inputs expect NPN (sinking) signals. The two cannot be wired directly, and the connection had to meet industrial safety requirements.', 'Un robot con salidas PNP (que entregan corriente) debía controlar un dispensador cuyas entradas esperan señales NPN (que absorben corriente). Ambos no pueden conectarse directamente, y la conexión debía cumplir requisitos de seguridad industrial.'),
+  approach: [
+    T('Took the interface from schematic to PCB layout in Altium Designer.', 'Llevé la interfaz del esquemático al layout del PCB en Altium Designer.'),
+    T('Designed an opto-isolated stage that separates the robot side from the dispenser side.', 'Diseñé una etapa optoaislada que separa el lado del robot del lado del dispensador.'),
+    T('Added relay-based switching to give the dispenser the signal type it expects, with flyback protection on the relay coils.', 'Agregué conmutación por relevadores para entregar al dispensador el tipo de señal que espera, con protección flyback en las bobinas.'),
+    T('Selected components and laid out the board with attention to signal integrity and industrial safety requirements.', 'Seleccioné los componentes y distribuí la tarjeta cuidando la integridad de señal y los requisitos de seguridad industrial.'),
+    T('Ran a DFM analysis in VisualCAM to confirm the board was robust and producible.', 'Realicé un análisis DFM en VisualCAM para confirmar que la tarjeta fuera robusta y fabricable.')
+  ],
+  results: T('The design was completed and the board was ordered for manufacturing, so that the robot with PNP outputs can drive the dispenser with NPN inputs.', 'El diseño se terminó y la tarjeta se mandó a fabricar, para que el robot con salidas PNP pueda controlar el dispensador con entradas NPN.'),
+  role: T('I designed the board from schematic to layout, which included the component selection, the signal integrity and the industrial safety requirements. In parallel, I managed and maintained the component libraries and ran DFM analyses in VisualCAM to keep designs robust, producible and aligned with manufacturing constraints. Working in an industrial setting showed me how design decisions are discussed, reviewed and iterated within a team, and how reliability, documentation and manufacturability shape real-world hardware development.', 'Diseñé la tarjeta del esquemático al layout, incluyendo la selección de componentes, la integridad de señal y los requisitos de seguridad industrial. En paralelo, administré y mantuve las bibliotecas de componentes y realicé análisis DFM en VisualCAM para que los diseños fueran robustos, fabricables y acordes con las restricciones de manufactura. Trabajar en un entorno industrial me mostró cómo se discuten, revisan e iteran las decisiones de diseño en equipo, y el papel central que tienen la confiabilidad, la documentación y la manufacturabilidad en el desarrollo de hardware real.'),
+  gallery: [], videos: [], clips: []
 },
 {
   id: 'fred-factory', tags: ['robot', 'sim'], cover: { src: 'media/fred-1.webp' },
@@ -83,7 +102,7 @@ const PROJECTS = [
     T('A Process Simulate twin of the cell, and a Plant Simulation model of the whole line built from measured KPIs, which located the bottleneck between stations 1 and 2.', 'Un gemelo de la celda en Process Simulate y un modelo de toda la línea en Plant Simulation construido con los KPIs medidos, que ubicó el cuello de botella entre las estaciones 1 y 2.')
   ],
   results: T('The station built five units in one production run with an average cycle of 16 min 24 s per unit, against an initial cycle near 8 minutes. Defective RAMPS shields in the supplied stock forced several reassemblies, which explains the gap and the variability.', 'La estación fabricó cinco unidades en una corrida con un ciclo promedio de 16 min 24 s por unidad, frente a un ciclo inicial cercano a 8 minutos. Shields RAMPS defectuosos en el inventario obligaron a reensamblar varias unidades, lo que explica la diferencia y la variabilidad.'),
-  role: T('Led the team and worked across every subsystem. I wrote the complete robot program from scratch.', 'Lideré el equipo y participé en todos los subsistemas. Escribí desde cero el programa completo del robot.'),
+  role: T("I led the team of six and wrote the complete robot program from scratch: five RAPID routines with pick, place and push sequences, a safety interrupt tied to the door and part sensors, and the Profinet signals that drive the gripper and the HMI progress bar. I also worked on the PLC integration, the fixtures and the production run.", "Lideré el equipo de seis integrantes y escribí desde cero el programa completo del robot: cinco rutinas en RAPID con secuencias de toma, colocación y empuje, una interrupción de seguridad ligada a los sensores de puerta y de pieza, y las señales por Profinet que controlan el gripper y la barra de progreso de la HMI. También trabajé en la integración con el PLC, los fixtures y la corrida de producción."),
   gallery: [
     { src: 'media/fred-1.webp', ...T('Robot station and operator station.', 'Estación del robot y estación del operador.') },
     { src: 'media/fred-2.webp', ...T('Robot cell with feeders, fixture and HMI.', 'Celda del robot con alimentadores, fixture y HMI.') },
@@ -117,7 +136,7 @@ const PROJECTS = [
     T('RAPID programs and line-sensor logic validated in RobotStudio; SolidWorks layout with fencing, E-stops and a 0.25 m/s speed limit when people are within 2.5 m.', 'Programas en RAPID y lógica de sensores de línea validados en RobotStudio; layout en SolidWorks con cercado, paros de emergencia y límite de 0.25 m/s cuando hay personas a menos de 2.5 m.')
   ],
   results: T('The simulated cell reached 14 cases per minute against 12 for the manual process, with a projected uptime of 99 %. The safety design follows ANSI/RIA R15.06, ISO 10218 and ISO 13849-1 Category 3, Performance Level d.', 'La celda simulada alcanzó 14 cajas por minuto frente a 12 del proceso manual, con una disponibilidad proyectada de 99 %. El diseño de seguridad sigue ANSI/RIA R15.06, ISO 10218 e ISO 13849-1 categoría 3, nivel de desempeño d.'),
-  role: T('Led the team of four and worked across every subsystem.', 'Lideré el equipo de cuatro integrantes y participé en todos los subsistemas.'),
+  role: T("I led the team of four through every phase, from analyzing ABB's request for quotation to the final documentation. I took part in every subsystem: robot sizing, end-effector design, the RobotStudio simulation, the vision inspection, and the safety and cost analysis.", "Lideré el equipo de cuatro integrantes en todas las fases, desde el análisis de la solicitud de cotización de ABB hasta la documentación final. Participé en todos los subsistemas: el dimensionamiento de los robots, el diseño de los efectores, la simulación en RobotStudio, la inspección por visión y los análisis de seguridad y de costos."),
   gallery: [
     { src: 'media/abb-1.webp', ...T('Complete cell simulated in RobotStudio.', 'Celda completa simulada en RobotStudio.') },
     { src: 'media/abb-3.webp', ...T('Conveyor guarding and safety fencing.', 'Guardas del transportador y cercado de seguridad.') },
@@ -143,7 +162,7 @@ const PROJECTS = [
     T('Flight-cage tests will measure landing precision, response latency and touchdown success rate, with results written up as a journal paper.', 'Las pruebas en la jaula de vuelo medirán precisión de aterrizaje, latencia de respuesta y tasa de éxito, y los resultados se publicarán como artículo.')
   ],
   results: T('The scissor platform is working. Next steps are wheels for X–Y motion and the landing controller.', 'La plataforma de tijera ya funciona. Los siguientes pasos son las ruedas para el movimiento en X–Y y el controlador de aterrizaje.'),
-  role: T('Lead the team of three and work across every subsystem, with responsibility for the electronics integration.', 'Lidero el equipo de tres integrantes y participo en todos los subsistemas, con la responsabilidad de la integración electrónica.'),
+  role: T("I lead the team of three and am responsible for the electronics: integrating the camera, Raspberry Pi 5 and Pixhawk, and the stepper drive of the wave platform. I also work on the platform mechanism, the vision approach and the project documentation, including the scope statement, the state-of-the-art review and the progress presentations.", "Lidero el equipo de tres integrantes y soy responsable de la electrónica: la integración de la cámara, la Raspberry Pi 5 y el Pixhawk, y el accionamiento con motor a pasos de la plataforma de oleaje. También trabajo en el mecanismo de la plataforma, el enfoque de visión y la documentación del proyecto, que incluye el enunciado de alcance, la revisión del estado del arte y las presentaciones de avance."),
   note: T('Photos and flight videos will be added as the project progresses.', 'Las fotos y los videos de vuelo se agregarán conforme avance el proyecto.'),
   gallery: [], videos: [], clips: []
 },
@@ -164,7 +183,7 @@ const PROJECTS = [
     T('Implemented the controller in Simulink with QUARC for real-time hardware-in-the-loop operation, estimating velocities with high-pass filters.', 'Implementé el controlador en Simulink con QUARC para operación en tiempo real con hardware en el lazo, estimando velocidades con filtros pasa-altas.')
   ],
   results: T('On the hardware the pendulum stayed upright while the arm tracked a square-wave reference, and returned to equilibrium after every manual push, both with and without the inertia disk.', 'En el equipo real el péndulo se mantuvo invertido mientras el brazo seguía una referencia cuadrada, y volvió al equilibrio tras cada empuje manual, con y sin el disco de inercia.'),
-  role: T('Led the team of five and worked across every stage, from modeling to hardware tests.', 'Lideré el equipo de cinco integrantes y participé en todas las etapas, del modelado a las pruebas en hardware.'),
+  role: T("I led the team of five through both stages of the project. The first stage was the state-space model and its check against the virtual lab. The second covered choosing the poles from the specification, the controllability check, computing the gain with both methods, and the hardware tests on the Qube-Servo 3 with and without the inertia disk.", "Lideré el equipo de cinco integrantes en las dos etapas del proyecto. La primera fue el modelo en espacio de estados y su comparación con el laboratorio virtual. La segunda abarcó la elección de los polos a partir de la especificación, la verificación de controlabilidad, el cálculo de la ganancia con ambos métodos y las pruebas en el Qube-Servo 3 con y sin el disco de inercia."),
   gallery: [
     { src: 'media/pendulum-1.webp', ...T('Rotary pendulum model and coordinates.', 'Modelo del péndulo rotatorio y sus coordenadas.') },
     { src: 'media/pendulum-2.webp', ...T('Measured arm and pendulum angles; spikes are manual disturbances.', 'Ángulos medidos del brazo y del péndulo; los picos son perturbaciones manuales.') }
@@ -186,7 +205,7 @@ const PROJECTS = [
     T('HC-05 Bluetooth commands from a phone, LCD over I²C, and live plots of internal variables with STM32CubeMonitor.', 'Comandos por Bluetooth HC-05 desde el celular, LCD por I²C y gráficas en vivo de variables internas con STM32CubeMonitor.')
   ],
   results: T('Commanded to 300 cm, the vehicle overshot to 410 cm in open loop and stopped at 301 cm in closed loop, a 0.33 % error. In timed mode it covered 500 cm in 15 s with no distance error.', 'Con una orden de 300 cm, el vehículo llegó a 410 cm en lazo abierto y se detuvo en 301 cm en lazo cerrado, un error de 0.33 %. En el modo por tiempo recorrió 500 cm en 15 s sin error de distancia.'),
-  role: T('Led the team of four and worked across every subsystem.', 'Lideré el equipo de cuatro integrantes y participé en todos los subsistemas.'),
+  role: T("I led the team of four with an incremental plan: first open loop, then closed loop, testing each component on its own before integrating it. I worked on the STM32 timers, interrupts and PWM, the encoder-based distance and speed measurement, the trapezoidal profile and the PI tuning, and the Bluetooth command interface.", "Lideré el equipo de cuatro integrantes con un plan incremental: primero lazo abierto y después lazo cerrado, probando cada componente por separado antes de integrarlo. Trabajé en los temporizadores, interrupciones y PWM del STM32, la medición de distancia y velocidad con el encoder, el perfil trapezoidal y la sintonización del PI, y la interfaz de comandos por Bluetooth."),
   gallery: [
     { src: 'media/vehicle-1.webp', ...T('Wiring: STM32, H-bridge, encoder motor, HC-05 and LCD.', 'Conexiones: STM32, puente H, motor con encoder, HC-05 y LCD.') },
     { src: 'media/vehicle-5.webp', ...T('Trapezoidal velocity profile.', 'Perfil de velocidad trapezoidal.') },
@@ -210,7 +229,7 @@ const PROJECTS = [
     T('Thermal model: heater radiation, fan airflow, conduction through the MDF walls and the time to heat or cool across the band.', 'Modelo térmico: radiación del calefactor, flujo del ventilador, conducción por las paredes de MDF y el tiempo para calentar o enfriar dentro de la banda.')
   ],
   results: T('Both loops worked in simulation and on the bench. Two problems were solved along the way: the LM35 signal jumped every time the fan switched, fixed with a voltage follower and separate power supplies; and the PLA cabin lost too much heat, so it was rebuilt in MDF with foam insulation.', 'Ambos lazos funcionaron en simulación y en el banco. En el camino se resolvieron dos problemas: la señal del LM35 saltaba cada vez que conmutaba el ventilador, corregido con un seguidor de voltaje y fuentes separadas; y la cabina de PLA perdía demasiado calor, por lo que se reconstruyó en MDF con aislante.'),
-  role: T('Led the team of four and worked across every subsystem.', 'Lideré el equipo de cuatro integrantes y participé en todos los subsistemas.'),
+  role: T("I led the team of four and worked on the signal conditioning: the thermistor linearization, the LM35 scaling and the hysteresis comparators. I also worked on the thermal model and on the build and debugging, where we solved the sensor loading problem with a voltage follower and rebuilt the cabin in insulated MDF.", "Lideré el equipo de cuatro integrantes y trabajé en el acondicionamiento de señal: la linealización del termistor, el escalamiento del LM35 y los comparadores con histéresis. También trabajé en el modelo térmico y en la construcción y depuración, donde resolvimos el problema de carga del sensor con un seguidor de voltaje y reconstruimos la cabina en MDF aislado."),
   gallery: [
     { src: 'media/cabin-1.webp', ...T('Scale cabin and engine box on the bench.', 'Cabina y caja del motor a escala en el banco.') },
     { src: 'media/cabin-2.webp', ...T('Bench test with power supplies and meters.', 'Prueba en banco con fuentes y multímetros.') },
@@ -235,7 +254,7 @@ const PROJECTS = [
     T('Fuse, switch and power LED for protection and indication.', 'Fusible, interruptor y LED de encendido para protección e indicación.')
   ],
   results: T('Measured ripple was 2.9 % against 2.7 % in simulation, inside the 6 % limit, with a flat ±12 V output after regulation. The review noted that the PCB traces were too thin for the full current, a point to fix in a next revision.', 'El rizado medido fue de 2.9 % frente a 2.7 % en simulación, dentro del límite de 6 %, con una salida plana de ±12 V después de la regulación. En la revisión se identificó que las pistas del PCB eran demasiado delgadas para la corriente máxima, un punto a corregir en una siguiente versión.'),
-  role: T('Led the team of four and worked across every stage.', 'Lideré el equipo de cuatro integrantes y participé en todas las etapas.'),
+  role: T("I led the team of four through the full cycle: sizing the filter capacitors by hand calculation, simulating in Proteus and LTspice, laying out the PCB in Altium Designer, building and soldering the three board iterations, and measuring each stage on the oscilloscope.", "Lideré el equipo de cuatro integrantes en todo el ciclo: el dimensionamiento de los capacitores de filtro por cálculo, la simulación en Proteus y LTspice, el diseño del PCB en Altium Designer, la construcción y soldadura de las tres iteraciones de la tarjeta y la medición de cada etapa en el osciloscopio."),
   gallery: [
     { src: 'media/power-1.webp', ...T('Assembled power supply board.', 'Tarjeta de la fuente ensamblada.') },
     { src: 'media/power-2.webp', ...T('3D view of the PCB in Altium Designer.', 'Vista 3D del PCB en Altium Designer.') },
@@ -259,7 +278,7 @@ const PROJECTS = [
     T('Two MDF boards joined by 3D-printed supports: rigid PLA guides and a flexible TPU damper, sized by hand calculation and checked with static and fatigue FEA.', 'Dos tableros de MDF unidos por soportes impresos en 3D: guías rígidas de PLA y un amortiguador flexible de TPU, dimensionados por cálculo y verificados con FEA estático y de fatiga.')
   ],
   results: T('The platform vibrated in sync with the bass of the music. Possible improvements include several motors for a wider frequency range and user controls for intensity.', 'La plataforma vibró en sincronía con los graves de la música. Entre las mejoras posibles están varios motores para un rango de frecuencias más amplio y controles de intensidad para el usuario.'),
-  role: T('Led the team of four and worked across every subsystem, with focus on the electronics, the filter and the firmware.', 'Lideré el equipo de cuatro integrantes y participé en todos los subsistemas, con énfasis en la electrónica, el filtro y el firmware.'),
+  role: T("I led the team of four and focused on the electronics and software. I designed the RC low-pass filter and solved the signal-clarity and compatibility problems. I also integrated the Arduino UNO, the KY-038 microphone and the AC dimmer, and wrote the firmware. I took part in the mechanical design as well, including the FEA of the supports.", "Lideré el equipo de cuatro integrantes y me enfoqué en la electrónica y el software. Diseñé el filtro pasa-bajas RC y resolví los problemas de claridad de señal y de compatibilidad entre componentes. También integré el Arduino UNO, el micrófono KY-038 y el dimmer de CA, y escribí el firmware. Participé además en el diseño mecánico, incluido el análisis por elementos finitos de los soportes."),
   gallery: [
     { src: 'media/vibe-1.webp', ...T('CAD model of the platform.', 'Modelo CAD de la plataforma.') },
     { src: 'media/vibe-2.webp', ...T('Static finite-element analysis.', 'Análisis estático por elementos finitos.') },
@@ -269,7 +288,7 @@ const PROJECTS = [
   ], videos: [], clips: []
 },
 {
-  id: 'emotion-recognition', tags: ['vision'], cover: { motif: 'vision' },
+  id: 'emotion-recognition', solo: true, tags: ['vision'], cover: { motif: 'vision' },
   org: T('MIT'), year: '2024', status: 'done',
   title: T('Emotion recognition for human–robot interaction', 'Reconocimiento de emociones para interacción humano–robot'),
   summary: T('A YOLOv8 model that reads facial expressions so FrED can respond to its operator.', 'Un modelo YOLOv8 que lee expresiones faciales para que FrED responda a su operador.'),
@@ -281,7 +300,7 @@ const PROJECTS = [
     T('Reviewed more than ten research papers to refine the method and evaluate wearable device integration.', 'Revisé más de diez artículos de investigación para afinar el método y evaluar la integración de dispositivos portátiles.')
   ],
   results: T('The model reached 85 % accuracy.', 'El modelo alcanzó 85 % de precisión.'),
-  role: T('Research project collaborator.', 'Colaborador del proyecto de investigación.'),
+  role: T("As a research collaborator, I developed the emotion recognition model with YOLOv8 and OpenCV and reviewed more than ten papers to refine the method and assess wearable integration.", "Como colaborador de investigación, desarrollé el modelo de reconocimiento de emociones con YOLOv8 y OpenCV y revisé más de diez artículos para afinar el método y evaluar la integración con dispositivos portátiles."),
   gallery: [], videos: [], clips: []
 }
 ];

@@ -29,6 +29,7 @@ Sube tu foto **con el mismo nombre de archivo** y se reemplaza sola, sin tocar e
 | `media/foto-portada.jpg` | Inicio, portada a pantalla completa detrás de tu nombre (se oscurece automáticamente) | horizontal, 2400 × 1350 px |
 | `media/foto-perfil.jpg` | Inicio, junto a "Acerca de mí" | vertical 4:5, p. ej. 800 × 1000 px |
 | `media/foto-liderazgo.jpg` | Página de Liderazgo, portada | horizontal, 2400 × 1350 px |
+| `media/diram-portada.jpg` | Portafolio, tarjeta y página del proyecto de Diram | horizontal 3:2, p. ej. 1600 × 1067 px |
 
 La portada del Portafolio usa `media/fred-2.webp` (la celda de FrED Factory); puedes cambiarla en `portfolio.html`.
 En `index.html` hay un comentario para agregar un pie de foto en cursiva bajo tu foto de perfil, si quieres indicar dónde fue tomada.
@@ -51,7 +52,7 @@ GitHub Pages no tiene servidor, así que el formulario abre la aplicación de co
 
 ## Enlaces directos a cada proyecto
 
-`portfolio.html#schneider`, `#fred-factory`, `#abb-packaging`, `#drone-landing`, `#inverted-pendulum`, `#semi-automated-vehicle`, `#tractor-cabin`, `#dc-power-supply`, `#vibrating-platform`, `#emotion-recognition`, `#efuse`. Los enlaces anteriores del tipo `index.html#schneider` redirigen solos al portafolio.
+`portfolio.html#schneider`, `#diram-interface-board`, `#fred-factory`, `#abb-packaging`, `#drone-landing`, `#inverted-pendulum`, `#semi-automated-vehicle`, `#tractor-cabin`, `#dc-power-supply`, `#vibrating-platform`, `#emotion-recognition`, `#efuse`. Los enlaces anteriores del tipo `index.html#schneider` redirigen solos al portafolio.
 
 ## Dominio propio (opcional)
 
