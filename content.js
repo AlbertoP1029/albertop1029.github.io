@@ -67,7 +67,7 @@ const PROJECTS = [
   ], videos: [], clips: []
 },
 {
-  id: 'diram-interface-board', solo: true, tags: ['elec'], cover: { src: 'media/diram-portada.jpg' },
+  id: 'diram-interface-board', solo: true, tags: ['elec'], cover: { src: 'media/diram-portada.jpeg' },
   org: T('Diram S.A. de C.V.'), year: '2025', status: 'done',
   title: T('Opto-isolated PNP-to-NPN interface board', 'Tarjeta de interfaz optoaislada de PNP a NPN'),
   summary: T('A PCB that lets a robot with PNP outputs drive a dispenser with NPN inputs.', 'Un PCB que permite que un robot con salidas PNP controle un dispensador con entradas NPN.'),
