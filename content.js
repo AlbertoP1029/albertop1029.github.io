@@ -23,7 +23,7 @@ const T = (en, es) => ({ en, es: es === undefined ? en : es });
 
 const PROJECTS = [
 {
-  id: 'efuse', solo: true, wide: false, tags: ['sim', 'elec'], cover: { motif: 'pareto' },
+  id: 'efuse', solo: true, wide: false, tags: ['sim', 'elec'], cover: { src: 'media/mercedes-portada.jpeg' },
   org: T('Mercedes-Benz AG'), year: '2026', status: 'done',
   title: T('Automated optimization pipeline for a high-voltage eFuse circuit', 'Pipeline de optimización automatizada para un circuito eFuse de alto voltaje'),
   summary: T('Python pipeline that couples LTspice simulations with Optuna to tune a high-voltage protection circuit.', 'Pipeline en Python que acopla simulaciones de LTspice con Optuna para ajustar un circuito de protección de alto voltaje.'),
