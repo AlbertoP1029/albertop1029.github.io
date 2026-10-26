@@ -41,7 +41,7 @@ const PROJECTS = [
   gallery: [], videos: [], clips: []
 },
 {
-  id: 'schneider', wide: true, tags: ['sim', 'robot', 'vision'], cover: { src: 'media/schneider-1.webp' },
+  id: 'schneider', tags: ['sim', 'robot', 'vision'], cover: { src: 'media/schneider-cover.webp' },
   org: T('Schneider Electric challenge', 'Reto Schneider Electric'), year: '2025', status: 'done',
   title: T('Cobot inspection cell validated with a digital twin', 'Celda de inspección con cobot validada mediante gemelo digital'),
   summary: T('A Lexium cobot and a vision sensor cut final inspection of circuit breakers from 90 minutes to under 4.', 'Un cobot Lexium y un sensor de visión redujeron la inspección final de interruptores de 90 minutos a menos de 4.'),
@@ -67,7 +67,7 @@ const PROJECTS = [
   ], videos: [], clips: []
 },
 {
-  id: 'diram-interface-board', solo: true, tags: ['elec'], cover: { src: 'media/diram-portada.jpeg' },
+  id: 'diram-interface-board', solo: true, tags: ['elec'], cover: { src: 'media/diram-1.webp' },
   org: T('Diram S.A. de C.V.'), year: '2025', status: 'done',
   title: T('Opto-isolated PNP-to-NPN interface board', 'Tarjeta de interfaz optoaislada de PNP a NPN'),
   summary: T('A PCB that lets a robot with PNP outputs drive a dispenser with NPN inputs.', 'Un PCB que permite que un robot con salidas PNP controle un dispensador con entradas NPN.'),
@@ -83,7 +83,9 @@ const PROJECTS = [
   ],
   results: T('The design was completed and the board was ordered for manufacturing, so that the robot with PNP outputs can drive the dispenser with NPN inputs.', 'El diseño se terminó y la tarjeta se mandó a fabricar, para que el robot con salidas PNP pueda controlar el dispensador con entradas NPN.'),
   role: T('I designed the board from schematic to layout, which included the component selection, the signal integrity and the industrial safety requirements. In parallel, I managed and maintained the component libraries and ran DFM analyses in VisualCAM to keep designs robust, producible and aligned with manufacturing constraints. Working in an industrial setting showed me how design decisions are discussed, reviewed and iterated within a team, and how reliability, documentation and manufacturability shape real-world hardware development.', 'Diseñé la tarjeta del esquemático al layout, incluyendo la selección de componentes, la integridad de señal y los requisitos de seguridad industrial. En paralelo, administré y mantuve las bibliotecas de componentes y realicé análisis DFM en VisualCAM para que los diseños fueran robustos, fabricables y acordes con las restricciones de manufactura. Trabajar en un entorno industrial me mostró cómo se discuten, revisan e iteran las decisiones de diseño en equipo, y el papel central que tienen la confiabilidad, la documentación y la manufacturabilidad en el desarrollo de hardware real.'),
-  gallery: [], videos: [], clips: []
+  gallery: [
+    { src: 'media/diram-1.webp', ...T('3D view of the interface board in Altium Designer.', 'Vista 3D de la tarjeta de interfaz en Altium Designer.') }
+  ], videos: [], clips: []
 },
 {
   id: 'fred-factory', tags: ['robot', 'sim'], cover: { src: 'media/fred-1.webp' },
@@ -121,7 +123,7 @@ const PROJECTS = [
   ], clips: []
 },
 {
-  id: 'abb-packaging', tags: ['robot', 'sim', 'vision'], cover: { src: 'media/abb-1.webp' },
+  id: 'abb-packaging', tags: ['robot', 'sim', 'vision'], cover: { src: 'media/abb-cad.webp' },
   org: T('ABB challenge', 'Reto ABB'), year: '2025', status: 'done',
   title: T('Bottle packaging and palletizing cell', 'Celda de empaque y paletizado de botellas'),
   summary: T('Two ABB IRB 4600 robots, a vision station and a mobile robot, validated in RobotStudio.', 'Dos robots ABB IRB 4600, una estación de visión y un robot móvil, validados en RobotStudio.'),
@@ -138,6 +140,7 @@ const PROJECTS = [
   results: T('The simulated cell reached 14 cases per minute against 12 for the manual process, with a projected uptime of 99 %. The safety design follows ANSI/RIA R15.06, ISO 10218 and ISO 13849-1 Category 3, Performance Level d.', 'La celda simulada alcanzó 14 cajas por minuto frente a 12 del proceso manual, con una disponibilidad proyectada de 99 %. El diseño de seguridad sigue ANSI/RIA R15.06, ISO 10218 e ISO 13849-1 categoría 3, nivel de desempeño d.'),
   role: T("I led the team of four through every phase, from analyzing ABB's request for quotation to the final documentation. I took part in every subsystem: robot sizing, end-effector design, the RobotStudio simulation, the vision inspection, and the safety and cost analysis.", "Lideré el equipo de cuatro integrantes en todas las fases, desde el análisis de la solicitud de cotización de ABB hasta la documentación final. Participé en todos los subsistemas: el dimensionamiento de los robots, el diseño de los efectores, la simulación en RobotStudio, la inspección por visión y los análisis de seguridad y de costos."),
   gallery: [
+    { src: 'media/abb-cad.webp', ...T('Cell layout in SolidWorks: conveyors, robots, fencing and pallet.', 'Layout de la celda en SolidWorks: transportadores, robots, cercado y tarima.') },
     { src: 'media/abb-1.webp', ...T('Complete cell simulated in RobotStudio.', 'Celda completa simulada en RobotStudio.') },
     { src: 'media/abb-3.webp', ...T('Conveyor guarding and safety fencing.', 'Guardas del transportador y cercado de seguridad.') },
     { src: 'media/abb-4.webp', ...T('8-cup vacuum gripper for 5 L and 8.5 L bottles.', 'Gripper de vacío de 8 ventosas para botellas de 5 L y 8.5 L.') },
@@ -167,7 +170,7 @@ const PROJECTS = [
   gallery: [], videos: [], clips: []
 },
 {
-  id: 'inverted-pendulum', tags: ['ctrl', 'sim'], cover: { motif: 'step' },
+  id: 'inverted-pendulum', tags: ['ctrl', 'sim'], cover: { src: 'media/pendulum-photo.webp' },
   org: T('Tec de Monterrey'), year: '2024', status: 'done',
   title: T('Rotary inverted pendulum control', 'Control de péndulo invertido rotatorio'),
   summary: T('State-feedback controller designed by pole placement and validated on a Quanser Qube-Servo 3.', 'Controlador por retroalimentación de estados diseñado por asignación de polos y validado en un Quanser Qube-Servo 3.'),
@@ -185,12 +188,13 @@ const PROJECTS = [
   results: T('On the hardware the pendulum stayed upright while the arm tracked a square-wave reference, and returned to equilibrium after every manual push, both with and without the inertia disk.', 'En el equipo real el péndulo se mantuvo invertido mientras el brazo seguía una referencia cuadrada, y volvió al equilibrio tras cada empuje manual, con y sin el disco de inercia.'),
   role: T("I led the team of five through both stages of the project. The first stage was the state-space model and its check against the virtual lab. The second covered choosing the poles from the specification, the controllability check, computing the gain with both methods, and the hardware tests on the Qube-Servo 3 with and without the inertia disk.", "Lideré el equipo de cinco integrantes en las dos etapas del proyecto. La primera fue el modelo en espacio de estados y su comparación con el laboratorio virtual. La segunda abarcó la elección de los polos a partir de la especificación, la verificación de controlabilidad, el cálculo de la ganancia con ambos métodos y las pruebas en el Qube-Servo 3 con y sin el disco de inercia."),
   gallery: [
+    { src: 'media/pendulum-photo.webp', ...T('Quanser Qube-Servo 3 used for the hardware tests.', 'Quanser Qube-Servo 3 usado en las pruebas en hardware.') },
     { src: 'media/pendulum-1.webp', ...T('Rotary pendulum model and coordinates.', 'Modelo del péndulo rotatorio y sus coordenadas.') },
     { src: 'media/pendulum-2.webp', ...T('Measured arm and pendulum angles; spikes are manual disturbances.', 'Ángulos medidos del brazo y del péndulo; los picos son perturbaciones manuales.') }
   ], videos: [], clips: []
 },
 {
-  id: 'semi-automated-vehicle', tags: ['ctrl', 'elec'], cover: { src: 'media/vehicle-1.webp', contain: true },
+  id: 'semi-automated-vehicle', tags: ['ctrl', 'elec'], cover: { src: 'media/vehicle-pinout.webp', contain: true },
   org: T('John Deere challenge', 'Reto John Deere'), year: '2024', status: 'done',
   title: T('Semi-automated vehicle', 'Vehículo semiautomatizado'),
   summary: T('STM32 firmware with PI distance control on a trapezoidal profile and a timed travel mode.', 'Firmware en STM32 con control PI de distancia sobre perfil trapezoidal y un modo de recorrido por tiempo.'),
@@ -208,6 +212,7 @@ const PROJECTS = [
   role: T("I led the team of four with an incremental plan: first open loop, then closed loop, testing each component on its own before integrating it. I worked on the STM32 timers, interrupts and PWM, the encoder-based distance and speed measurement, the trapezoidal profile and the PI tuning, and the Bluetooth command interface.", "Lideré el equipo de cuatro integrantes con un plan incremental: primero lazo abierto y después lazo cerrado, probando cada componente por separado antes de integrarlo. Trabajé en los temporizadores, interrupciones y PWM del STM32, la medición de distancia y velocidad con el encoder, el perfil trapezoidal y la sintonización del PI, y la interfaz de comandos por Bluetooth."),
   gallery: [
     { src: 'media/vehicle-1.webp', ...T('Wiring: STM32, H-bridge, encoder motor, HC-05 and LCD.', 'Conexiones: STM32, puente H, motor con encoder, HC-05 y LCD.') },
+    { src: 'media/vehicle-pinout.webp', ...T('STM32F103 pin configuration in STM32CubeIDE.', 'Configuración de pines del STM32F103 en STM32CubeIDE.') },
     { src: 'media/vehicle-5.webp', ...T('Trapezoidal velocity profile.', 'Perfil de velocidad trapezoidal.') },
     { src: 'media/vehicle-3.webp', ...T('Open loop: the vehicle overshoots the target.', 'Lazo abierto: el vehículo rebasa la meta.') },
     { src: 'media/vehicle-2.webp', ...T('Closed loop: encoder distance follows the profile to 301 cm.', 'Lazo cerrado: la distancia del encoder sigue el perfil hasta 301 cm.') },
@@ -265,7 +270,7 @@ const PROJECTS = [
   ], videos: [], clips: []
 },
 {
-  id: 'vibrating-platform', tags: ['elec'], cover: { src: 'media/vibe-1.webp' },
+  id: 'vibrating-platform', tags: ['elec'], cover: { src: 'media/vibe-fea.webp' },
   org: T('Tec de Monterrey'), year: '2024', status: 'done',
   title: T('Bass-responsive vibrating platform', 'Plataforma vibratoria que responde a los graves'),
   summary: T('A floor that vibrates with the low frequencies of music, from microphone to 110 V motor.', 'Una plataforma que vibra con las frecuencias bajas de la música, del micrófono al motor de 110 V.'),

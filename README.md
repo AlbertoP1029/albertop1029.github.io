@@ -29,7 +29,6 @@ Sube tu foto **con el mismo nombre de archivo** y se reemplaza sola, sin tocar e
 | `media/foto-portada.jpg` | Inicio, portada a pantalla completa detrás de tu nombre (se oscurece automáticamente) | horizontal, 2400 × 1350 px |
 | `media/foto-perfil.jpg` | Inicio, junto a "Acerca de mí" | vertical 4:5, p. ej. 800 × 1000 px |
 | `media/foto-liderazgo.jpg` | Página de Liderazgo, portada | horizontal, 2400 × 1350 px |
-| `media/diram-portada.jpg` | Portafolio, tarjeta y página del proyecto de Diram | horizontal 3:2, p. ej. 1600 × 1067 px |
 
 La portada del Portafolio usa `media/fred-2.webp` (la celda de FrED Factory); puedes cambiarla en `portfolio.html`.
 En `index.html` hay un comentario para agregar un pie de foto en cursiva bajo tu foto de perfil, si quieres indicar dónde fue tomada.
@@ -57,3 +56,7 @@ GitHub Pages no tiene servidor, así que el formulario abre la aplicación de co
 ## Dominio propio (opcional)
 
 Agrégalo en **Settings → Pages → Custom domain** y sigue las instrucciones de DNS que muestra GitHub.
+
+## Si un cambio no se ve después de subirlo
+
+El navegador guarda una copia de `content.js`, `app.js` y `styles.css`. Las páginas cargan esos archivos con un número de versión (`?v=...`). Cuando cambies cualquiera de ellos, cambia ese número en las cinco páginas HTML (por ejemplo, de `v=20261024b` a `v=20261101`) para que los visitantes reciban la versión nueva de inmediato. Para revisar tú mismo, recarga con Ctrl + Shift + R (Cmd + Shift + R en Mac).
