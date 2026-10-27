@@ -280,3 +280,9 @@ video.clip { width: 100%; background: #000; }
 
 /* variables used by the pendulum plot script */
 :root { --ink: #000; --muted: #555; --rule: #e0e0e0; --accent: #000; --surface: #fff; --mono: var(--font); --bg: #fff; }
+
+/* leadership hero: text bottom-left so the subject in the centre stays clear */
+.hero-full.hero-left { align-items: flex-end; min-height: 74vh; }
+.hero-left .hero-bg { background-position: center 72%; }
+.hero-left .hero-overlay-content { margin-left: 0; margin-right: auto; width: auto; max-width: 520px; padding: 0 var(--pad) 4vw; }
+@media (max-width: 768px) { .hero-left .hero-overlay-content { max-width: none; padding: 0 var(--pad) 2rem; } .hero-left .hero-quote { font-size: 1.25rem; } }
