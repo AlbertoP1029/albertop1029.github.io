@@ -23,7 +23,7 @@ const T = (en, es) => ({ en, es: es === undefined ? en : es });
 
 const PROJECTS = [
 {
-  id: 'efuse', solo: true, wide: false, tags: ['sim', 'elec'], cover: { motif: 'pareto' },
+  id: 'efuse', solo: true, tags: ['sim', 'elec'], cover: { src: 'media/efuse-tpe.webp' },
   org: T('Mercedes-Benz AG'), year: '2026', status: 'done',
   title: T('Automated optimization pipeline for a high-voltage eFuse circuit', 'Pipeline de optimización automatizada para un circuito eFuse de alto voltaje'),
   summary: T('Python pipeline that couples LTspice simulations with Optuna to tune a high-voltage protection circuit.', 'Pipeline en Python que acopla simulaciones de LTspice con Optuna para ajustar un circuito de protección de alto voltaje.'),
@@ -170,6 +170,30 @@ const PROJECTS = [
   gallery: [], videos: [], clips: []
 },
 {
+  id: 'ecoshell-telemetry', tags: ['elec'], cover: { src: 'media/ecoshell-car.webp' },
+  org: T('Escudería EcoShell · Tec de Monterrey'), year: '2024', status: 'done',
+  title: T('Motor controller temperature telemetry for a Shell Eco-marathon car', 'Telemetría de temperatura del controlador del motor para un auto del Shell Eco-marathon'),
+  summary: T('ESP32 and NTC thermistor measurement of the motor controller temperature, calibrated with the Steinhart–Hart equation.', 'Medición de la temperatura del controlador del motor con ESP32 y termistor NTC, calibrada con la ecuación de Steinhart–Hart.'),
+  facts: [[T('Team', 'Equipo'), T('Escudería EcoShell, electronics area', 'Escudería EcoShell, área de electrónica')], [T('Type', 'Tipo'), T('Extracurricular student team', 'Equipo estudiantil extracurricular')], [T('Competition', 'Competencia'), T('Shell Eco-marathon Americas 2024')], [T('Year', 'Año'), T('2024')], [T('Tools', 'Herramientas'), T('ESP32, NTC 10 kΩ thermistor, MATLAB, C++')]],
+  kpis: [],
+  challenge: T('Escudería EcoShell is the Tecnológico de Monterrey student team that designs and builds a high-efficiency prototype car for the Shell Eco-marathon. The electronics area needed to monitor the temperature of the motor controller while the car runs.', 'Escudería EcoShell es el equipo estudiantil del Tecnológico de Monterrey que diseña y construye un prototipo de alta eficiencia para el Shell Eco-marathon. El área de electrónica necesitaba monitorear la temperatura del controlador del motor mientras el auto está en marcha.'),
+  approach: [
+    T('Measurement chain: the temperature changes the resistance of an NTC 10 kΩ thermistor, a voltage divider turns it into an analog voltage, and the ESP32 ADC digitizes it. The firmware runs the chain backwards to estimate the temperature.', 'Cadena de medición: la temperatura cambia la resistencia de un termistor NTC de 10 kΩ, un divisor de voltaje la convierte en un voltaje analógico y el ADC del ESP32 lo digitaliza. El firmware recorre la cadena en sentido inverso para estimar la temperatura.'),
+    T('With the divider and the ADC sharing the same reference, the thermistor resistance is Rt = R·(ADCmax / ADC − 1), independent of the supply voltage.', 'Como el divisor y el ADC comparten la misma referencia, la resistencia del termistor es Rt = R·(ADCmax / ADC − 1), sin depender del voltaje de alimentación.'),
+    T('Characterized the thermistor from 25 to 87 °C, recording its voltage and resistance at each temperature.', 'Caracterización del termistor de 25 a 87 °C, registrando su voltaje y resistencia en cada temperatura.'),
+    T('Fitted the Steinhart–Hart coefficients A, B and C from three calibration points (25, 35 and 45 °C) by solving the linear system in MATLAB.', 'Ajuste de los coeficientes A, B y C de Steinhart–Hart a partir de tres puntos de calibración (25, 35 y 45 °C), resolviendo el sistema lineal en MATLAB.'),
+    T('Implemented the conversion on the ESP32 and tested the system under real operating conditions, reading the temperature over serial.', 'Implementación de la conversión en el ESP32 y pruebas del sistema en condiciones reales de operación, leyendo la temperatura por puerto serial.')
+  ],
+  results: T('The team competed in the Shell Eco-marathon Americas 2024, its first participation, and passed all the electronics technical inspections, an important achievement for the electronics area.', 'El equipo compitió en el Shell Eco-marathon Americas 2024, su primera participación, y aprobó todas las inspecciones técnicas de electrónica, un logro importante para el área de electrónica.'),
+  role: T('As a member of the electronics team, I led the development of the motor controller temperature telemetry: the thermistor circuit and its integration with the ESP32, the characterization and Steinhart–Hart calibration, the conversion firmware and the tests under real operating conditions.', 'Como integrante del equipo de electrónica, lideré el desarrollo de la telemetría de temperatura del controlador del motor: el circuito del termistor y su integración con el ESP32, la caracterización y calibración con Steinhart–Hart, el firmware de conversión y las pruebas en condiciones reales de operación.'),
+  gallery: [
+    { src: 'media/ecoshell-car.webp', ...T('Render of the team\'s prototype for the Shell Eco-marathon Americas 2024.', 'Render del prototipo del equipo para el Shell Eco-marathon Americas 2024.') },
+    { src: 'media/ecoshell-idea.webp', ...T('Measurement chain, from temperature to ADC value and back to an estimated temperature.', 'Cadena de medición, de la temperatura al valor del ADC y de regreso a una temperatura estimada.') },
+    { src: 'media/ecoshell-characterization.webp', ...T('Thermistor characterization from 25 to 87 °C.', 'Caracterización del termistor de 25 a 87 °C.') },
+    { src: 'media/ecoshell-steinhart.webp', ...T('Steinhart–Hart model and the MATLAB solution for its coefficients.', 'Modelo de Steinhart–Hart y la solución de sus coeficientes en MATLAB.') }
+  ], videos: [], clips: []
+},
+{
   id: 'inverted-pendulum', tags: ['ctrl', 'sim'], cover: { src: 'media/pendulum-photo.webp' },
   org: T('Tec de Monterrey'), year: '2024', status: 'done',
   title: T('Rotary inverted pendulum control', 'Control de péndulo invertido rotatorio'),
@@ -194,25 +218,32 @@ const PROJECTS = [
   ], videos: [], clips: []
 },
 {
-  id: 'semi-automated-vehicle', tags: ['ctrl', 'elec'], cover: { src: 'media/vehicle-pinout.webp', contain: true },
+  id: 'semi-automated-vehicle', tags: ['ctrl', 'elec'], cover: { src: 'media/vehicle-photo.webp', contain: true },
   org: T('John Deere challenge', 'Reto John Deere'), year: '2024', status: 'done',
   title: T('Semi-automated vehicle', 'Vehículo semiautomatizado'),
-  summary: T('STM32 firmware with PI distance control on a trapezoidal profile and a timed travel mode.', 'Firmware en STM32 con control PI de distancia sobre perfil trapezoidal y un modo de recorrido por tiempo.'),
-  facts: [[T('Partner', 'Socio formador'), T('John Deere')], [T('Course', 'Materia'), T('Industrial Automation', 'Automatización Industrial')], [T('Year', 'Año'), T('Nov 2024', 'Nov 2024')], [T('Team', 'Equipo'), T('4 students, team lead', '4 estudiantes, líder del equipo')], [T('Tools', 'Herramientas'), T('STM32F103, STM32CubeIDE, STM32CubeMonitor, C')]],
+  summary: T('Battery-powered STM32 vehicle with manual and automatic modes, PID distance and speed control, and obstacle detection.', 'Vehículo con batería basado en STM32, con modos manual y automático, control PID de distancia y velocidad, y detección de obstáculos.'),
+  facts: [[T('Partner', 'Socio formador'), T('John Deere')], [T('Course', 'Materia'), T('Industrial Automation', 'Automatización Industrial')], [T('Year', 'Año'), T('Nov 2024', 'Nov 2024')], [T('Team', 'Equipo'), T('4 students, team lead', '4 estudiantes, líder del equipo')], [T('Tools', 'Herramientas'), T('STM32F103C8, STM32CubeIDE, STM32CubeMonitor, C')]],
   kpis: [[T('0.33 %'), T('closed-loop distance error', 'error de distancia en lazo cerrado')], [T('301 / 300 cm'), T('travelled vs commanded', 'recorrido frente a ordenado')], [T('410 cm'), T('open-loop result, for comparison', 'resultado en lazo abierto, como referencia')], [T('500 cm · 15 s'), T('timed move, on target', 'recorrido por tiempo, sin error')]],
-  challenge: T('Make a small vehicle travel an exact distance, and cover a given distance in a given time, with parameters sent wirelessly from a phone.', 'Lograr que un vehículo pequeño recorra una distancia exacta y que cubra una distancia dada en un tiempo dado, con parámetros enviados de forma inalámbrica desde un celular.'),
+  challenge: T('Build a battery-powered vehicle that can be driven manually from a phone or run on its own: controlling speed, distance and direction, following predefined sequences, detecting and avoiding obstacles, and reporting its state through LEDs, an LCD and Bluetooth.', 'Construir un vehículo con batería que pueda manejarse manualmente desde un celular o funcionar por sí solo: controlar velocidad, distancia y dirección, seguir secuencias predefinidas, detectar y evadir obstáculos, e informar su estado mediante LEDs, una LCD y Bluetooth.'),
   approach: [
-    T('STM32F103 at 72 MHz. The encoder (280 counts per revolution, 6.3 cm wheels) is read by external interrupt, and a 100 ms timer interrupt computes speed.', 'STM32F103 a 72 MHz. El encoder (280 cuentas por vuelta, ruedas de 6.3 cm) se lee por interrupción externa, y una interrupción de temporizador de 100 ms calcula la velocidad.'),
-    T('Trapezoidal velocity profile with configurable acceleration and deceleration, and an experimentally fitted map from speed to PWM duty.', 'Perfil de velocidad trapezoidal con aceleración y desaceleración configurables, y un mapa de velocidad a PWM ajustado experimentalmente.'),
-    T('Open-loop baseline first, then a PI controller on the error between the profile position and the encoder distance. The derivative term was dropped because of encoder noise.', 'Primero una línea base en lazo abierto y después un controlador PI sobre el error entre la posición del perfil y la distancia del encoder. Se omitió la acción derivativa por el ruido del encoder.'),
-    T('Timed mode solves the cruise speed from distance and time, then creeps at minimum speed until the error is within ±1 cm.', 'El modo por tiempo calcula la velocidad crucero a partir de distancia y tiempo, y luego avanza a velocidad mínima hasta que el error queda dentro de ±1 cm.'),
-    T('HC-05 Bluetooth commands from a phone, LCD over I²C, and live plots of internal variables with STM32CubeMonitor.', 'Comandos por Bluetooth HC-05 desde el celular, LCD por I²C y gráficas en vivo de variables internas con STM32CubeMonitor.')
+    T('STM32F103C8 at 72 MHz with one timer per task: TIM1 for the control interrupts, TIM2 for the ultrasonic sensor, TIM3 for the motor PWM and TIM4 for the steering servo.', 'STM32F103C8 a 72 MHz con un temporizador por tarea: TIM1 para las interrupciones de control, TIM2 para el sensor ultrasónico, TIM3 para el PWM del motor y TIM4 para el servo de dirección.'),
+    T('Hardware: encoder DC motor on an L298 H-bridge, MG996R servo for steering, HC-SR04 ultrasonic sensor, MPU6050 IMU, HC-05 Bluetooth, 16×2 LCD over I²C, status LEDs and an XL4015 step-down converter from the battery.', 'Hardware: motor CD con encoder en un puente H L298, servo MG996R para la dirección, sensor ultrasónico HC-SR04, IMU MPU6050, Bluetooth HC-05, LCD de 16×2 por I²C, LEDs de estado y un convertidor reductor XL4015 desde la batería.'),
+    T('Distance and speed from the encoder (280 counts per revolution, 6.3 cm wheels), with a trapezoidal velocity profile and an experimentally fitted map from speed to PWM duty.', 'Distancia y velocidad a partir del encoder (280 cuentas por vuelta, ruedas de 6.3 cm), con un perfil de velocidad trapezoidal y un mapa de velocidad a PWM ajustado experimentalmente.'),
+    T('Open-loop baseline first, then closed-loop control of distance, speed and direction. For distance, the derivative term was dropped because of encoder noise, leaving a PI controller.', 'Primero una línea base en lazo abierto y después control en lazo cerrado de distancia, velocidad y dirección. En distancia se omitió la acción derivativa por el ruido del encoder, quedando un controlador PI.'),
+    T('Manual mode drives the car in all directions with commands from a phone over Bluetooth; automatic mode runs predefined distance, speed and timed sequences and stops when the ultrasonic sensor detects an obstacle.', 'El modo manual mueve el auto en todas direcciones con comandos desde el celular por Bluetooth; el modo automático ejecuta secuencias predefinidas de distancia, velocidad y tiempo, y se detiene cuando el sensor ultrasónico detecta un obstáculo.'),
+    T('Live plots of internal variables with STM32CubeMonitor during tuning.', 'Gráficas en vivo de variables internas con STM32CubeMonitor durante la sintonización.')
   ],
-  results: T('Commanded to 300 cm, the vehicle overshot to 410 cm in open loop and stopped at 301 cm in closed loop, a 0.33 % error. In timed mode it covered 500 cm in 15 s with no distance error.', 'Con una orden de 300 cm, el vehículo llegó a 410 cm en lazo abierto y se detuvo en 301 cm en lazo cerrado, un error de 0.33 %. En el modo por tiempo recorrió 500 cm en 15 s sin error de distancia.'),
-  role: T("I led the team of four with an incremental plan: first open loop, then closed loop, testing each component on its own before integrating it. I worked on the STM32 timers, interrupts and PWM, the encoder-based distance and speed measurement, the trapezoidal profile and the PI tuning, and the Bluetooth command interface.", "Lideré el equipo de cuatro integrantes con un plan incremental: primero lazo abierto y después lazo cerrado, probando cada componente por separado antes de integrarlo. Trabajé en los temporizadores, interrupciones y PWM del STM32, la medición de distancia y velocidad con el encoder, el perfil trapezoidal y la sintonización del PI, y la interfaz de comandos por Bluetooth."),
+  results: T('Commanded to 300 cm, the vehicle overshot to 410 cm in open loop and stopped at 301 cm in closed loop, a 0.33 % error. In timed mode it covered 500 cm in 15 s with no distance error. In the final demonstration it ran in manual and automatic modes, detected obstacles, and completed the distance competition at 1.63, 3.26 and 4.88 m.', 'Con una orden de 300 cm, el vehículo llegó a 410 cm en lazo abierto y se detuvo en 301 cm en lazo cerrado, un error de 0.33 %. En el modo por tiempo recorrió 500 cm en 15 s sin error de distancia. En la demostración final funcionó en modo manual y automático, detectó obstáculos y completó la competencia de distancia a 1.63, 3.26 y 4.88 m.'),
+  role: T("I led the team of four with an incremental plan: first open loop, then closed loop, testing each peripheral on its own before integrating it. I worked on the STM32 timers, interrupts and PWM, the encoder-based distance and speed measurement, the trapezoidal profile and the controller tuning, the Bluetooth command interface, and the final integration and debugging of hardware and software.", "Lideré el equipo de cuatro integrantes con un plan incremental: primero lazo abierto y después lazo cerrado, probando cada periférico por separado antes de integrarlo. Trabajé en los temporizadores, interrupciones y PWM del STM32, la medición de distancia y velocidad con el encoder, el perfil trapezoidal y la sintonización del controlador, la interfaz de comandos por Bluetooth, y la integración y depuración final de hardware y software."),
   gallery: [
-    { src: 'media/vehicle-1.webp', ...T('Wiring: STM32, H-bridge, encoder motor, HC-05 and LCD.', 'Conexiones: STM32, puente H, motor con encoder, HC-05 y LCD.') },
+    { src: 'media/vehicle-photo.webp', ...T('The vehicle with its HC-SR04 ultrasonic sensor at the front.', 'El vehículo con su sensor ultrasónico HC-SR04 al frente.') },
+    { src: 'media/vehicle-side.webp', ...T('Side view: STM32, H-bridge, LCD and steering servo.', 'Vista lateral: STM32, puente H, LCD y servo de dirección.') },
+    { src: 'media/vehicle-connections.webp', ...T('Connection diagram of all the components.', 'Diagrama de conexiones de todos los componentes.') },
     { src: 'media/vehicle-pinout.webp', ...T('STM32F103 pin configuration in STM32CubeIDE.', 'Configuración de pines del STM32F103 en STM32CubeIDE.') },
+    { src: 'media/vehicle-bluetooth.webp', ...T('Manual mode: commands sent from a phone over Bluetooth.', 'Modo manual: comandos enviados desde el celular por Bluetooth.') },
+    { src: 'media/vehicle-obstacle.webp', ...T('Obstacle detection with the ultrasonic sensor.', 'Detección de obstáculos con el sensor ultrasónico.') },
+    { src: 'media/vehicle-lcd.webp', ...T('Status shown on the LCD.', 'Estado mostrado en la LCD.') },
+    { src: 'media/vehicle-distance.webp', ...T('Distance competition run.', 'Recorrido de la competencia de distancia.') },
     { src: 'media/vehicle-5.webp', ...T('Trapezoidal velocity profile.', 'Perfil de velocidad trapezoidal.') },
     { src: 'media/vehicle-3.webp', ...T('Open loop: the vehicle overshoots the target.', 'Lazo abierto: el vehículo rebasa la meta.') },
     { src: 'media/vehicle-2.webp', ...T('Closed loop: encoder distance follows the profile to 301 cm.', 'Lazo cerrado: la distancia del encoder sigue el perfil hasta 301 cm.') },
@@ -291,22 +322,6 @@ const PROJECTS = [
     { src: 'media/vibe-4.webp', ...T('Section of a support: PLA guide and TPU damper.', 'Corte de un soporte: guía de PLA y amortiguador de TPU.') },
     { src: 'media/vibe-5.webp', ...T('Schematic: microphone, filter, Arduino and dimmer.', 'Esquemático: micrófono, filtro, Arduino y dimmer.') }
   ], videos: [], clips: []
-},
-{
-  id: 'emotion-recognition', solo: true, tags: ['vision'], cover: { motif: 'vision' },
-  org: T('MIT'), year: '2024', status: 'done',
-  title: T('Emotion recognition for human–robot interaction', 'Reconocimiento de emociones para interacción humano–robot'),
-  summary: T('A YOLOv8 model that reads facial expressions so FrED can respond to its operator.', 'Un modelo YOLOv8 que lee expresiones faciales para que FrED responda a su operador.'),
-  facts: [[T('Context', 'Contexto'), T('Research collaboration, MIT', 'Colaboración de investigación, MIT')], [T('Year', 'Año'), T('Aug – Dec 2024', 'Ago – dic 2024')], [T('Tools', 'Herramientas'), T('Python, YOLOv8, OpenCV')]],
-  kpis: [[T('85 %'), T('model accuracy', 'precisión del modelo')], [T('10+'), T('papers reviewed', 'artículos revisados')]],
-  challenge: T('Give FrED, a low-cost fiber extrusion device used in teaching, a way to react to the person operating it.', 'Dar a FrED, un dispositivo de extrusión de fibra de bajo costo usado en docencia, una forma de reaccionar a la persona que lo opera.'),
-  approach: [
-    T('Trained an emotion recognition model on facial expressions with YOLOv8 and OpenCV.', 'Entrené un modelo de reconocimiento de emociones a partir de expresiones faciales con YOLOv8 y OpenCV.'),
-    T('Reviewed more than ten research papers to refine the method and evaluate wearable device integration.', 'Revisé más de diez artículos de investigación para afinar el método y evaluar la integración de dispositivos portátiles.')
-  ],
-  results: T('The model reached 85 % accuracy.', 'El modelo alcanzó 85 % de precisión.'),
-  role: T("As a research collaborator, I developed the emotion recognition model with YOLOv8 and OpenCV and reviewed more than ten papers to refine the method and assess wearable integration.", "Como colaborador de investigación, desarrollé el modelo de reconocimiento de emociones con YOLOv8 y OpenCV y revisé más de diez artículos para afinar el método y evaluar la integración con dispositivos portátiles."),
-  gallery: [], videos: [], clips: []
 }
 ];
 
